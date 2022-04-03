@@ -2,7 +2,7 @@
 
 Integrantes: 
 - A
-- A
+- Arthur Yochio Rodrigues Codama (2019006418)
 - Daniele Cássia Silva Diniz
 - H
 
