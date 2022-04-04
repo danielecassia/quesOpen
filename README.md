@@ -1,7 +1,7 @@
 # Descrição e Objetivos
 
 Integrantes: 
-- A
+- Alexandre Ferreira Arigoni
 - Arthur Yochio Rodrigues Codama
 - Daniele Cássia Silva Diniz
 - Henrique César Alves de Souza
