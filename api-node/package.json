@@ -1,0 +1,22 @@
+{
+  "name": "quesopen",
+  "version": "1.0.0",
+  "description": "Integrantes: \r - Alexandre Ferreira Arigoni (dev fullstack)\r - Arthur Yochio Rodrigues Codama (dev fullstack)\r - Daniele Cássia Silva Diniz (dev fullstack)\r - Henrique César Alves de Souza (dev fullstack)",
+  "main": "hellonode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniele-Cassia/quesOpen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daniele-Cassia/quesOpen/issues"
+  },
+  "homepage": "https://github.com/Daniele-Cassia/quesOpen#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

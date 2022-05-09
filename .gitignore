@@ -1,0 +1,4 @@
+my-app/node_modules/
+api-node/node_modules/
+*.log
+*.env
