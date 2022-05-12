@@ -1,11 +1,21 @@
-// server/index.js
+require('dotenv').config();
 
-const express = require("express");
+// chamando o modulo das configuracoes do express
+const app = require('./config/config-express');
 
-const PORT = process.env.PORT || 3001;
+//rodando o servidor na porta 3001
+app.listen(3001, 'localhost', () => console.log('servidor rodando!'));
 
-const app = express();
+//rota get de teste
+app.get('/', (req,res) => {
+  res.send('tudo certo');
+})
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
+//rota post de teste
+app.post('/', (req,res) => {
+  res.send(req.body.text);
+})
+
+const usersRouter = require('./usuario/controller/user-controller');
+
+app.use('/users', usersRouter);
