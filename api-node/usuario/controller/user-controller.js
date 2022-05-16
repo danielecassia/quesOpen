@@ -14,6 +14,7 @@ router.post('/',
       res.status(200).json(userCreated);
     } catch (error) {
       console.log("erro na criação");
+      console.log(error);
     }
   });
 
