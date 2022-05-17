@@ -16,6 +16,18 @@ app.post('/', (req,res) => {
   res.send(req.body.text);
 })
 
-const usersRouter = require('./usuario/controller/user-controller');
+const usuariosRouter = require('./usuario/controller/usuarioController');
 
-app.use('/users', usersRouter);
+app.use('/usuarios', usuariosRouter);
+
+const comentariosRouter = require('./comentario/controller/comentarioController');
+
+app.use('/comentarios', comentariosRouter);
+
+const disciplinasRouter = require('./disciplina/controller/disciplinaController');
+
+app.use('/disciplinas', disciplinasRouter);
+
+const discussaoRouter = require('./discussao/controller/discussaoController');
+
+app.use('/discussoes', discussaoRouter);

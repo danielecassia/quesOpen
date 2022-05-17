@@ -19,5 +19,12 @@ disciplina.sync({ alter: false, force: false })
   .then(() => console.log('A tabela disciplina foi criada!'))
   .catch((error) => console.log(error));
 
+// Relações
+
+// discussao.belongsTo(disciplina);
+// discussao.belongsTo(usuario);
+// comentario.belongsTo(discussao);
+// comentario.belongsTo(usuario);
+
 
 module.exports = disciplina;

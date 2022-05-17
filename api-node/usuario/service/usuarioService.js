@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
-const usuario = require('../model/userModel.js')
+const usuario = require('../model/usuarioModel.js')
 
-class UserService {
+class usuarioService {
 
   createUser = async (user) => {
     const saltRounds = 10;
@@ -26,7 +26,17 @@ class UserService {
     );
     return createdUser;
   };
+
+  getUsuarios = async () => {
+    const createdUsuarios = sequelize.query(
+      'SELECT * FROM usuarios',
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+    return createdUsuarios;
+  };
 }
 
 
-module.exports = new UserService();
+module.exports = new usuarioService();
