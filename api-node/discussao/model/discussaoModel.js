@@ -5,6 +5,7 @@ const discussao = sequelize.define('discussao', {
   id_discussao: {
     type: DataTypes.INTEGER,
     primaryKey: true,
+    unique: true,
     autoIncrement: true,
     allowNull: false,
   },
@@ -21,11 +22,5 @@ const discussao = sequelize.define('discussao', {
     allowNull: false,
   },
 });
-
-
-discussao.sync({ alter: false, force: false })
-  .then(() => console.log('A tabela discussao foi criada!'))
-  .catch((error) => console.log(error));
-
 
 module.exports = discussao;

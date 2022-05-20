@@ -4,7 +4,7 @@ const discussaoService = require('../service/discussaoService');
 router.get('/',
   async (req, res) => {
     try {
-      const discussaoCreated = await discussaoService.getDisciplinas();
+      const discussaoCreated = await discussaoService.getAllDisciplinas();
       res.status(200).json(discussaoCreated);
     } catch (error) {
       console.log("erro na criação");

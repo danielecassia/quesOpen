@@ -4,7 +4,7 @@ const discussao = require('../model/discussaoModel')
 
 class discussaoService {
 
-  getDisciplinas = async () => {
+  getAllDisciplinas = async () => {
     const createdDiscussao = sequelize.query(
       'SELECT * FROM discussaos',
       {

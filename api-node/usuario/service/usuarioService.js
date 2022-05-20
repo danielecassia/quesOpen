@@ -27,7 +27,7 @@ class usuarioService {
     return createdUser;
   };
 
-  getUsuarios = async () => {
+  getAllUsuarios = async () => {
     const createdUsuarios = sequelize.query(
       'SELECT * FROM usuarios',
       {
@@ -35,6 +35,19 @@ class usuarioService {
       }
     );
     return createdUsuarios;
+  };
+
+  getUsuariobyId = async(userId) => {
+    const user = sequelize.query(
+      'SELECT * FROM usuarios WHERE id_usuario = :idUser',
+      {
+        replacements: {
+          idUser: userId,
+        },
+        type: QueryTypes.SELECT,
+      }
+    )
+    return user;
   };
 }
 

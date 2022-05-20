@@ -19,9 +19,4 @@ const comentario = sequelize.define('comentario', {
 });
 
 
-comentario.sync({ alter: false, force: false })
-  .then(() => console.log('A tabela comentario foi criada!'))
-  .catch((error) => console.log(error));
-
-
 module.exports = comentario;

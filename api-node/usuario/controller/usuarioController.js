@@ -21,10 +21,20 @@ router.post('/',
   router.get('/',
   async (req, res) => {
     try {
-      const usuariosCreated = await usuarioService.getUsuarios();
+      const usuariosCreated = await usuarioService.getAllUsuarios();
       res.status(200).json(usuariosCreated);
     } catch (error) {
       console.log("erro na criação");
+      console.log(error);
+    }
+  });
+
+  router.get('/usuario/:id', async(req,res) => {
+    try {
+      const userId = req.params.id;
+      const userWanted = await usuarioService.getUsuariobyId(userId);
+      res.status(200).json(userWanted);
+    } catch (error) {
       console.log(error);
     }
   });
