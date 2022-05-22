@@ -5,7 +5,7 @@
   "main": "hellonode.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node api-node/index.js"
+    "start": "nodemon api-node/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,14 @@
   },
   "homepage": "https://github.com/Daniele-Cassia/quesOpen#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
