@@ -5,7 +5,7 @@ router.post('/',
   async (req, res) => {
     try {
       const user = {
-        name: req.body.name,
+        nome_usuario: req.body.nome_usuario,
         email: req.body.email,
         data_nasc: req.body.data_nasc,
         senha: req.body.senha,
@@ -13,7 +13,6 @@ router.post('/',
       const userCreated = await usuarioService.createUser(user);
       res.status(200).json(userCreated);
     } catch (error) {
-      console.log("erro na criação");
       console.log(error);
     }
   });
