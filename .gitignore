@@ -1,4 +1,4 @@
-my-app/node_modules/
-api-node/node_modules/
-*.log
-*.env
+# dependencies
+/node_modules
+.log
+.env
