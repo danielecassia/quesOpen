@@ -42,8 +42,6 @@ discussao.belongsTo(disciplina);
 discussao.hasMany(comentario);
 comentario.belongsTo(discussao);
 
-
-
 usuario.sync({ alter: false, force: false })
   .then(() => console.log('A tabela usuario foi criada!'))
   .catch((error) => console.log(error));

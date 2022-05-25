@@ -55,6 +55,8 @@ class discussaoService {
 
   createDiscussao = async(dadosDiscussao) => {
     const discussaoCreated = discussao.create(dadosDiscussao);
+    console.log(discussaoCreated);
+    return discussaoCreated;
   }
 }
 

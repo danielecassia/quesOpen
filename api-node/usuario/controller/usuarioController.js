@@ -38,4 +38,28 @@ router.post('/',
     }
   });
 
+  // router.post('/teste',
+  // async (req, res) => {
+  //   try {
+  //     const emailUsuario = req.body.email;
+  //     const userCreated = await usuarioService.getUsuariobyEmail(emailUsuario);
+  //     res.status(200).json(userCreated);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // });
+
+  // router.post('/login', async(req,res)=>{
+  //   try {
+  //     const user = {
+  //       email: req.body.email,
+  //       senha: req.body.senha,
+  //     }
+  //     res.status(200).json(user);
+  //     console.log(user);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // });
+
   module.exports = router;

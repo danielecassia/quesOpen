@@ -1,0 +1,4 @@
+node_modules/
+my-app/node_modules/
+api-node/node_modules/
+api-node/.env

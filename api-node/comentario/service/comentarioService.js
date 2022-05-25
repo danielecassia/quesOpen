@@ -5,14 +5,20 @@ const comentario = require('../model/comentarioModel')
 class comentarioService {
 
   getComentarios = async () => {
-    const createdComentario = sequelize.query(
-      'SELECT * FROM comentarios',
-      {
-        type: QueryTypes.SELECT,
-      }
-    );
+    const createdComentario = comentario.findAll();
     return createdComentario;
   };
+
+  getComentariosByDiscussao = async (idDiscussao) => {
+    const createdComentario = comentario.findAll({where: {discussaoIdDiscussao: idDiscussao}});
+    return createdComentario;
+  };
+
+  createComentario = async(dadosComentario) => {
+    const comentarioCreated = comentario.create(dadosComentario);
+    console.log(comentarioCreated);
+    return comentarioCreated;
+  }
 }
 
 
