@@ -1,0 +1,19 @@
+.NumberInput{
+    display: flex;
+    flex-direction: column;
+
+   input {
+     width: auto;
+     height: 40px;
+     background: var(--input-color);
+     border-radius: 10px;
+     border: none;
+     margin-bottom: 15px;
+     padding-left: 10px;
+     padding-right: 10px;
+   }
+   input:focus {
+      outline: 1px solid rgba(0, 132, 255, 0.3);
+   }
+
+}

@@ -1,0 +1,11 @@
+.GreenButton {
+    background: var(--green);
+    border-radius: 10px;
+    border: none;
+    color: #F9F9F9;
+    font-size: 100%;
+    cursor: pointer;
+}
+.GreenButton:hover {
+    background:  var(--dark-green);
+}

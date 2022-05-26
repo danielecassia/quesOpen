@@ -1,9 +1,5 @@
-type HomeProps = {
-    text: string;
-}
-
-export function Home(props: HomeProps) {
+export function Home() {
     return(
-        <p>{props.text}</p>
+        <p>Homee</p>
     );
 }

@@ -1,0 +1,16 @@
+.Title{
+    width: 95%;
+    height: 11%;
+    margin:3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 28px;
+        line-height: 120%;
+    }
+}
