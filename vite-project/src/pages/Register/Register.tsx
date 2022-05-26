@@ -11,13 +11,6 @@ import logo from '../../../assets/imagens/logo.svg';
 export function Register() {
 
   function onClickRegister() {
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
   }
 
   return (
