@@ -59,7 +59,11 @@ class usuarioService {
     return user;
   };
 
-  
+  getUsuariobyEmail = async(emailUsuario) => {
+    const user = usuario.findOne({where: {email: emailUsuario}});
+    console.log(user);
+    return user;
+  }
 
 }
 
