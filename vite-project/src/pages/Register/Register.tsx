@@ -1,12 +1,6 @@
-import * as React from 'react';
-import './Register.scss';
-import {
-    Route,
-  } from "react-router-dom";
-
 import { Home } from '..//Home/Home';
 import logo from '../../../assets/imagens/logo.svg';
-
+import './Register.scss';
 
 export function Register() {
 
@@ -16,34 +10,58 @@ export function Register() {
   return (
     <div className="register">
       <div className="register-card">
-        <div className="left">
+        <div className="cima">
           <img src={logo} alt="" />
         </div>
 
-        <div className="right">
-          <h1>register</h1>
+        <div className="baixo">
           <div className="register-content">
             <form onSubmit={onClickRegister}>
               <div className='inputs'>
-                <input
-                  type='text'
-                  placeholder='Email'
-                //   value={email}
-                //   onChange={(ev) => setEmail(ev.target.value)}
-                />
-                <input
-                  type="password"
-                  placeholder='Senha'
-                //   value={password}
-                //   onChange={(ev) => setPassword(ev.target.value)}
-                />
+                  <div>
+                    <input
+                    type='text'
+                    placeholder='Nome'
+                    //   value={email}
+                    //   onChange={(ev) => setEmail(ev.target.value)}
+                    />
+                    <input
+                    type='text'
+                    placeholder='Email'
+                    //   value={email}
+                    //   onChange={(ev) => setEmail(ev.target.value)}
+                    />
+                    <input
+                    type="password"
+                    placeholder='Senha'
+                    //   value={password}
+                    //   onChange={(ev) => setPassword(ev.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <input
+                    type='date'
+                    placeholder='Data de Nascimento'
+                    //   value={email}
+                    //   onChange={(ev) => setEmail(ev.target.value)}
+                    />
+                    <input
+                    type='text'
+                    placeholder='Confirmar E-mail'
+                    //   value={email}
+                    //   onChange={(ev) => setEmail(ev.target.value)}
+                    />
+                    <input
+                    type="password"
+                    placeholder='Confirmar Senha'
+                    //   value={password}
+                    //   onChange={(ev) => setPassword(ev.target.value)}
+                    />
+                  </div>
               </div>
               <button
-                type='submit'>Entrar</button>
+                type='submit'>Cadastrar</button>
             </form>
-            <div className="register-footer">
-              <p>Ainda não tem uma conta? Cadastre-se aqui</p>
-            </div>
           </div>
         </div>
       </div>
