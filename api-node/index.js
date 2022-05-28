@@ -21,28 +21,26 @@ const app = require('./config/config-express');
 //rodando o servidor na porta 3001
 app.listen(3001, 'localhost', () => console.log('servidor rodando!'));
 
-//rota get de teste
-// app.get('/', (req,res) => {
-//   res.send('tudo certo');
-// })
-
-// //rota post de teste
-// app.post('/', (req,res) => {
-//   res.send(req.body.text);
-// })
-
+const MySQLStore = require('express-mysql-session')(session);
 app.use(session({
+  store: new MySQLStore({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+  }),
   secret: '123',
   resave: false,
   saveUninitialized: false,
-  cookie: {maxAge: 2 * 60 * 1000}
+  cookie: {maxAge: 5 * 60 * 1000}
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', loginRouter);
-app.use('/usuarios', authenticationMiddleware, usuariosRouter);
+app.use('/usuarios', usuariosRouter);
 app.use('/comentarios', comentariosRouter);
 app.use('/disciplinas', disciplinasRouter);
 app.use('/discussoes', discussaoRouter);

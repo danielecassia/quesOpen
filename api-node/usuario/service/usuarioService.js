@@ -65,6 +65,22 @@ class usuarioService {
     return user;
   }
 
+  async getCurrentUser(id) {
+    const user = await usuario.findByPk(id,
+      {
+        attributes: { 
+          exclude:
+        ['senha', 'createdAt', 'updatedAt'],
+        },
+      });
+      if(!user) {
+        alert('Usuário não encontrado');
+        user = {};
+        return;
+      }
+      return user;
+  }
+
 }
 
 
