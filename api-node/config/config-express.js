@@ -11,11 +11,10 @@ app.use(express.urlencoded({
 }));
 
 // constante com a porta da API
-const APP_API_URL = "http://localhost:3001";
+const APP_API_URL = "http://localhost:3000";
 
 //chamando cors (pra usar futuramente)
-
-const cors = require('cors');
+var cors = require('cors')
 app.use(cors({
   origin: APP_API_URL,
   credentials: true,

@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
+import axios from "axios";
 // components
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
@@ -11,6 +11,8 @@ import { Home } from './pages/Home/Home';
 import { NotFound } from './pages/NotFound/NotFound';
 
 export function AppRoutes() {
+  axios.defaults.baseURL = 'http://localhost:3001';
+  axios.defaults.withCredentials = true;
   return (
     <div className="AppRoutes">
       <Router>

@@ -7,6 +7,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Item(props: BoxProps) {
     const { sx, ...other } = props;
@@ -29,7 +32,6 @@ function Item(props: BoxProps) {
         />
     );
 }
-
 
 export function Home() {
     return (

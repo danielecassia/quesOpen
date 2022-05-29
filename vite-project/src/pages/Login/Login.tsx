@@ -1,17 +1,24 @@
 import * as React from 'react';
 import './Login.scss';
+import axios from 'axios';
 import {
   useNavigate
   } from "react-router-dom";
 
-import logo from '../../assets/imagens/logo.svg';
-
-
 export function Login() {
   const navigate = useNavigate();
+  axios.get('/usuarios/me').then((res) => navigate('/home'))
+  .catch((err) => console.log("NAO TA LOGADO"));
 
-  function onClickLogin() {
-    console.log('enviei dados');
+  const [email, setEmail] = React.useState('');
+  const [senha, setSenha] = React.useState('');
+
+  function onClickLogin(ev) {
+    ev.preventDefault();
+    axios.post('/login', {email, senha})
+    .then((res) => navigate('/home'))
+    .catch((error) => alert(error.message));
+>>>>>>> main
   }
 
   return (
@@ -29,14 +36,14 @@ export function Login() {
                 <input
                   type='text'
                   placeholder='Email'
-                //   value={email}
-                //   onChange={(ev) => setEmail(ev.target.value)}
+                  value={email}
+                  onChange={(ev) => setEmail(ev.target.value)}
                 />
                 <input
                   type="password"
                   placeholder='Senha'
-                //   value={password}
-                //   onChange={(ev) => setPassword(ev.target.value)}
+                  value={senha}
+                  onChange={(ev) => setSenha(ev.target.value)}
                 />
               </div>
               <button
