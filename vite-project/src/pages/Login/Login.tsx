@@ -2,11 +2,8 @@ import * as React from 'react';
 import './Login.scss';
 import axios from 'axios';
 import {
-    Route,
+  useNavigate
   } from "react-router-dom";
-
-import {useNavigate} from "react-router-dom";
-import logo from '../../../assets/imagens/logo.svg';
 
 export function Login() {
   const navigate = useNavigate();
@@ -21,6 +18,7 @@ export function Login() {
     axios.post('/login', {email, senha})
     .then((res) => navigate('/home'))
     .catch((error) => alert(error.message));
+>>>>>>> main
   }
 
   return (
@@ -49,10 +47,12 @@ export function Login() {
                 />
               </div>
               <button
-                type='submit'>Entrar</button>
+                type='submit'
+                onClick={()=>navigate(`home`)}
+                >Entrar</button>
             </form>
             <div className="login-footer">
-              <p>Ainda não tem uma conta? Cadastre-se aqui</p>
+              <p>Ainda não tem uma conta? <a href="./register">Cadastre-se aqui</a> </p>
             </div>
           </div>
         </div>

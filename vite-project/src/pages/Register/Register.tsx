@@ -1,5 +1,5 @@
-import { Home } from '..//Home/Home';
-import logo from '../../../assets/imagens/logo.svg';
+import { Home } from '../Home/Home';
+import logo from '../../assets/imagens/logo.svg';
 import * as React from 'react';
 import './Register.scss';
 import axios from 'axios';
