@@ -4,6 +4,7 @@ import axios from 'axios';
 import {
   useNavigate
   } from "react-router-dom";
+import logo from '../../assets/imagens/logo.svg';
 
 export function Login() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ export function Login() {
     axios.post('/login', {email, senha})
     .then((res) => navigate('/home'))
     .catch((error) => alert(error.message));
->>>>>>> main
   }
 
   return (

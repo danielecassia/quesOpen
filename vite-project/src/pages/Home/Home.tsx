@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 function Item(props: BoxProps) {
@@ -34,6 +35,37 @@ function Item(props: BoxProps) {
 }
 
 export function Home() {
+
+    const [disciplinas, setDisciplinas] = useState([]);
+
+    useEffect(() => {
+        axios.get('/disciplinas')
+        .then(
+            (res) => setDisciplinas(res.data))
+        .catch((err) => console.log(err.response))
+    }, []); 
+
+    const itensDisciplinas = disciplinas.map(disciplina =>
+        (
+        // <Link to={``}>
+            <Card sx={{ maxWidth: 345 }}>
+            <CardActionArea sx={{ alignItems: 'center' }}>
+                <CardMedia
+                    component="img"
+                    height="100%"
+                    image={ImagemTeste}
+                    alt="green iguana"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {disciplina.nome_disciplina}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+        </Card>
+        // </Link>
+    ));
+    
     return (
         <div className="containerHome" style={{ width: '100%', height: '100%' }}>
             <div>
@@ -44,7 +76,8 @@ export function Home() {
                 <Box sx={{ gridAutoRows: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
                         justifyContent: 'space-around', justifyItems: 'center', width: '70%', marginTop:' 30px', marginBottom:' 30px'}}>
-                        <Card sx={{ maxWidth: 345 }}>
+                        {itensDisciplinas}
+                        {/* <Card sx={{ maxWidth: 345 }}>
                             <CardActionArea sx={{ alignItems: 'center' }}>
                                 <CardMedia
                                     component="img"
@@ -70,7 +103,6 @@ export function Home() {
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="div">
                                         GEOGRAFIA
-
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -89,9 +121,9 @@ export function Home() {
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
-                        </Card>
+                        </Card> */}
                     </Box>
-                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
+                    {/* <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
                         justifyContent: 'space-around', justifyItems: 'center', width: '70%'}}>
                         <Card sx={{ maxWidth: 345 }}>
                             <CardActionArea sx={{ alignItems: 'center' }}>
@@ -139,7 +171,7 @@ export function Home() {
                                 </CardContent>
                             </CardActionArea>
                         </Card>
-                    </Box>
+                    </Box> */}
                 </Box>
             </div>
         </div>
