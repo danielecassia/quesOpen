@@ -1,23 +1,17 @@
 import * as React from 'react';
 import './Login.scss';
 import {
-    Route,
+  useNavigate
   } from "react-router-dom";
 
-import { Home } from '..//Home/Home';
-import logo from '../../../assets/imagens/logo.svg';
+import logo from '../../assets/imagens/logo.svg';
 
 
 export function Login() {
+  const navigate = useNavigate();
 
   function onClickLogin() {
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
-    console.log('certinnnn');
+    console.log('enviei dados');
   }
 
   return (
@@ -46,10 +40,12 @@ export function Login() {
                 />
               </div>
               <button
-                type='submit'>Entrar</button>
+                type='submit'
+                onClick={()=>navigate(`home`)}
+                >Entrar</button>
             </form>
             <div className="login-footer">
-              <p>Ainda não tem uma conta? Cadastre-se aqui</p>
+              <p>Ainda não tem uma conta? <a href="./register">Cadastre-se aqui</a> </p>
             </div>
           </div>
         </div>

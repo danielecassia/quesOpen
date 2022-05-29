@@ -1,5 +1,5 @@
 import { Home } from '..//Home/Home';
-import logo from '../../../assets/imagens/logo.svg';
+import logo from '../../assets/imagens/logo.svg';
 import './Register.scss';
 
 export function Register() {
