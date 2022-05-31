@@ -9,14 +9,10 @@ export function DiscussoesTeste(){
     <div>
       <ResponsiveAppBar/>
       <Box flex={3} p={{ xs: 0, md: 2 }}>
-          <Stack spacing={1}>
-          </Stack>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+        <Post
+        title="Pessoa que criou"
+        date = "Data de postagem"
+        description="Descrição da discussao"/>
       </Box>
 
     </div>

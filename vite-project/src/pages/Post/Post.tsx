@@ -5,12 +5,19 @@ import {
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
   Checkbox,
   IconButton,
   Typography,
 } from "@mui/material";
-const Post = () => {
+
+// typagem das props
+interface typeProps{
+    title: string
+    description: string
+    date: string
+}
+
+const Post = ({title, description, date} : typeProps) => {
   return (
     <Card sx={{ margin: 5 }}>
       <CardHeader
@@ -24,14 +31,12 @@ const Post = () => {
             <MoreVert />
           </IconButton>
         }
-        title="John Doe"
-        subheader="September 14, 2022"
+        title={title}
+        subheader={date}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
