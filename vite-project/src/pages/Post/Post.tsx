@@ -1,16 +1,24 @@
-import { Favorite, FavoriteBorder, MoreVert, Share } from "@mui/icons-material";
+import { Favorite, MoreVert } from "@mui/icons-material";
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import {
   Avatar,
   Card,
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
   Checkbox,
   IconButton,
   Typography,
 } from "@mui/material";
-const Post = () => {
+
+// typagem das props
+interface typeProps{
+    title: string
+    description: string
+    date: string
+}
+
+const Post = ({title, description, date} : typeProps) => {
   return (
     <Card sx={{ margin: 5 }}>
       <CardHeader
@@ -21,28 +29,23 @@ const Post = () => {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVert />
+            <MoreVert/>
           </IconButton>
         }
-        title="John Doe"
-        subheader="September 14, 2022"
+        title={title}
+        subheader={date}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="comentar">
           <Checkbox
-            icon={<FavoriteBorder />}
+            icon={<ChatBubbleOutlineIcon />}
             checkedIcon={<Favorite sx={{ color: "red" }} />}
           />
-        </IconButton>
-        <IconButton aria-label="share">
-          <Share />
         </IconButton>
       </CardActions>
     </Card>
