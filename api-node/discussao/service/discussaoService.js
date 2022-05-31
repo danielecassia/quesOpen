@@ -47,7 +47,9 @@ class discussaoService {
         disciplinaIdDisciplina: disciplinaId,
       },
       include: [{
-        model: disciplina,
+        model: disciplina, usuarios,
+      }, {
+        model: usuarios,
       }]
     });
     return discussoesDisciplina;

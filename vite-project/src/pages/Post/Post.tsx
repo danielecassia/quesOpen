@@ -10,13 +10,15 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-const Post = () => {
+
+const Post = (props) => {
+  let maiusc = (props.disc.usuario.nome_usuario[0]).toUpperCase();
   return (
     <Card sx={{ margin: 5 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-            R
+            {maiusc}
           </Avatar>
         }
         action={
@@ -24,14 +26,12 @@ const Post = () => {
             <MoreVert />
           </IconButton>
         }
-        title="John Doe"
-        subheader="September 14, 2022"
+        title={props.disc.titulo}
+        subheader={(props.disc.data_discussao.substring(0,10))}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {props.disc.descricao}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
