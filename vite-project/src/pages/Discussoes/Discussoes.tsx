@@ -27,6 +27,7 @@ export function DiscussoesTeste(){
     <div>
       <ResponsiveAppBar/>
       <Box flex={3} p={{ xs: 0, md: 2 }}>
+{/* <<<<<<< HEAD */}
           <Stack spacing={1}>
           </Stack>
           {itensDisciplinas}
@@ -36,6 +37,12 @@ export function DiscussoesTeste(){
             <Post />
             <Post />
             <Post /> */}
+{/* =======
+        <Post
+        title="Pessoa que criou"
+        date = "Data de postagem"
+        description="Descrição da discussao"/>
+>>>>>>> 51d87a6da1e410605932aaedb01ba838e0174084 */}
       </Box>
 
     </div>
