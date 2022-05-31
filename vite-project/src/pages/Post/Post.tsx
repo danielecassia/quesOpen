@@ -1,4 +1,5 @@
-import { Favorite, FavoriteBorder, MoreVert, Share } from "@mui/icons-material";
+import { Favorite, MoreVert } from "@mui/icons-material";
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import {
   Avatar,
   Card,
@@ -28,7 +29,7 @@ const Post = ({title, description, date} : typeProps) => {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVert />
+            <MoreVert/>
           </IconButton>
         }
         title={title}
@@ -40,14 +41,11 @@ const Post = ({title, description, date} : typeProps) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="comentar">
           <Checkbox
-            icon={<FavoriteBorder />}
+            icon={<ChatBubbleOutlineIcon />}
             checkedIcon={<Favorite sx={{ color: "red" }} />}
           />
-        </IconButton>
-        <IconButton aria-label="share">
-          <Share />
         </IconButton>
       </CardActions>
     </Card>
