@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const MetodoLogout = require('../login/metodologout');
  
 /* GET login page. */
 router.get('/login', (req, res, next) => {
@@ -17,5 +18,14 @@ router.post('/login',
         failureRedirect: '/login?fail=true'
     })
 );
+
+router.post('/logout', async(req, res) => {
+    try {
+        const encerrar = await MetodoLogout.getLogout();
+        res.status(200).json(encerrar);
+    } catch (error) {
+        console.log(error);
+    }
+  });
  
 module.exports = router;

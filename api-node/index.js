@@ -19,7 +19,7 @@ const loginRouter = require('./login/login');
 const app = require('./config/config-express');
 
 //rodando o servidor na porta 3001
-app.listen(3030, 'localhost', () => console.log('servidor rodando!'));
+app.listen(3001, 'localhost', () => console.log('servidor rodando!'));
 
 const MySQLStore = require('express-mysql-session')(session);
 app.use(session({

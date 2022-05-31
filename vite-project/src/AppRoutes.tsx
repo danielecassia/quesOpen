@@ -12,7 +12,7 @@ import { DiscussoesTeste } from './pages/Discussoes/Discussoes';
 import { NotFound } from './pages/NotFound/NotFound';
 
 export function AppRoutes() {
-  axios.defaults.baseURL = 'http://localhost:3030';
+  axios.defaults.baseURL = 'http://localhost:3001';
   axios.defaults.withCredentials = true;
   return (
     <div className="AppRoutes">
