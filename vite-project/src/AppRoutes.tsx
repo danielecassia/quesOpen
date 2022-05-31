@@ -8,7 +8,7 @@ import axios from "axios";
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
 import { Home } from './pages/Home/Home';
-import { Discussoes } from './pages/Discussoes/Discussoes';
+import { DiscussoesTeste } from './pages/Discussoes/Discussoes';
 import { NotFound } from './pages/NotFound/NotFound';
 
 export function AppRoutes() {
@@ -21,7 +21,7 @@ export function AppRoutes() {
           <Route path="/" element={<Login/>}/>
           <Route path="register" element={<Register/>}/>
           <Route path="home" element={<Home/>}/>
-          <Route path="discussao" element={<Discussoes/>}/>
+          <Route path="discussao" element={<DiscussoesTeste/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
