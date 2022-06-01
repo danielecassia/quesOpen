@@ -9,6 +9,7 @@ import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
 import { Home } from './pages/Home/Home';
 import { DiscussoesTeste } from './pages/Discussoes/Discussoes';
+import { AcessarDiscussao } from './pages/AcessarDiscussao/AcessarDiscussao';
 import { CriaDiscussao } from './pages/CriaDiscussao/CriaDiscussao';
 import { NotFound } from './pages/NotFound/NotFound';
 
@@ -23,6 +24,7 @@ export function AppRoutes() {
           <Route path="register" element={<Register />} />
           <Route path="home" element={<Home />} />
           <Route path="discussao/:id" element={<DiscussoesTeste />} />
+          <Route path="discussao/acessaDiscussao" element={<AcessarDiscussao />} />
           <Route path="discussao/:id/criaDiscussao" element={<CriaDiscussao />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

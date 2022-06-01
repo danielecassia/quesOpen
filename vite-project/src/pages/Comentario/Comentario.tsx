@@ -1,31 +1,21 @@
 import { Favorite, MoreVert } from "@mui/icons-material";
-import { styled } from '@mui/material/styles';
 import {
   Avatar,
   Card,
   CardContent,
-  CardActionArea,
   CardHeader,
-  Box,
-  Link,
   IconButton,
   Typography,
-  Grid,
 } from "@mui/material";
 
 
-const Post = (props) => {
-  let maiusc = (props.disc.usuario.nome_usuario[0]).toUpperCase();
+export function Comentario() {
   return (
-    <Link 
-    underline="none" 
-    href="./acessaDiscussao">
-      <Card sx={{ margin: 2 }}>
-        <CardActionArea>
+    <Card sx={{ margin: 2 }}>
           <CardHeader
             avatar={
               <Avatar sx={{ bgcolor: "gray" }} aria-label="recipe">
-                {maiusc}
+                C
               </Avatar>
             }
             action={
@@ -33,19 +23,14 @@ const Post = (props) => {
                 <MoreVert />
               </IconButton>
             }
-            title={props.disc.titulo}
-            subheader={(props.disc.data_discussao.substring(0, 10))}
+            title='Comentário'
+            subheader='sei la'
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              {props.disc.descricao}
+              testeeeeeeeeeeeeeeeeeeee
             </Typography>
           </CardContent>
-        </CardActionArea>
       </Card>
-  </Link> 
-
   );
 };
-
-export default Post;
