@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './Login.scss';
+import './Login.scss'
 import axios from 'axios';
 import {
   useNavigate

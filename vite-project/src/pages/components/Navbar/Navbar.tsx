@@ -17,15 +17,38 @@ import { useNavigate, Outlet } from 'react-router-dom';
 
 
 export function Navbar() {
-  const pages = ['Matérias'];
-  const settings = ['Minhas Discussões', 'Perfil', 'Sair'];
-  
   const navigate = useNavigate();
+  // const pages = ['Matérias'];
+  const pages = [
+    {
+      id: 1,
+      nome: 'Matérias',
+      link:  ()=>navigate(`./`),
+    }
+  ]
+  // const settings = ['Minhas Discussões', 'Perfil', 'Sair'];
+  const settings = [
+    {
+      id: 1,
+      nome: 'Minhas Discussões',
+      link: ()=>navigate(`minhasDiscucoes`),
+    },
+    {
+      id: 2,
+      nome: 'Perfil',
+      link: ()=>navigate(`paginaPerfil`),
+    },
+    {
+      id: 3,
+      nome: 'Sair',
+      link: clickLogout,
+    }
+  ]
   function clickLogout(ev) {
     ev.preventDefault();
     axios.post('/logout')
-    .then((res) => navigate('/'))
-    .catch((error) => alert(error.message));
+      .then((res) => navigate('/'))
+      .catch((error) => alert(error.message));
   }
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -47,7 +70,7 @@ export function Navbar() {
 
   return (
     <Box>
-      <AppBar position="static">
+      <AppBar position="static" sx={{bgcolor:"black"}}>
         <Container maxWidth="100%">
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -99,8 +122,8 @@ export function Navbar() {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                  <MenuItem key={page.id} onClick={page.link}>
+                    <Typography textAlign="center">{page.nome}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -127,11 +150,11 @@ export function Navbar() {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
+                  key={page.id}
+                  onClick={page.link}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                  {page.nome}
                 </Button>
               ))}
             </Box>
@@ -159,8 +182,8 @@ export function Navbar() {
                 onClose={handleCloseUserMenu}
               >
                 {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
+                  <MenuItem key={setting.id} onClick={setting.link}>
+                    <Typography textAlign="center">{setting.nome}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -169,7 +192,7 @@ export function Navbar() {
         </Container>
       </AppBar>
       <div>
-        <Outlet/>
+        <Outlet />
       </div>
     </Box>
   );

@@ -1,14 +1,19 @@
 import Grid from '@mui/material/Grid';
 import { FormControl, FormHelperText, InputLabel, Input } from '@mui/material';
+import AddCommentIcon from '@mui/icons-material/AddComment';
 import Comentario from '../Comentario/Comentario';
+import {
+  useNavigate
+} from "react-router-dom";
 import { useParams } from 'react-router-dom';
-import { Card, Avatar, CardActionArea, CardHeader, IconButton, CardContent, Typography } from '@mui/material';
-import { MoreVert } from '@mui/icons-material';
+
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 
 export function AcessarDiscussao(){
+  const navigate = useNavigate();
+
   let {id_disc} = useParams();
   const [discussao, setDiscussao] = useState([]);
 
@@ -27,49 +32,34 @@ export function AcessarDiscussao(){
     .catch((err) => console.log(err.response))
   }, []);
   console.log(comentarios);
-  
+
   return (
     <div>
-      <Grid container spacing={2} sx={{marginTop: 'auto'}}>
-        <Grid item xs container direction="column" spacing={2}
+      <Grid container spacing={3} sx={{marginTop: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <Grid item xs={6} container direction="column"
           sx={{alignItems: 'center', display: 'flex', marginTop: 'initial', width: '100%'}}>
-            <Card sx={{ margin: 2 }}>
-            <CardActionArea>
-              <CardHeader 
-                avatar={
-                  <Avatar sx={{ bgcolor: "gray" }} aria-label="recipe">
-                    {/* {maiusc} */}
-                  </Avatar>
-                }
-                action={
-                  <IconButton aria-label="settings">
-                    <MoreVert />
-                  </IconButton>
-                }
-                title={discussao.titulo}
-                // subheader={(discussao[0].data_discussao.substring(0, 10))}
-              />
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  {discussao.descricao}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-          {/* <Grid item xs>
-            <FormControl>
-              <InputLabel htmlFor="my-input">Título</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text"/>
+          <Grid item sx={{width: '100%'}}>
+            <FormControl sx={{width: '100%'}}>
+              <InputLabel htmlFor="my-input"/>
+              <Input id="my-input" 
+                aria-describedby="my-helper-text"
+                value={discussao.titulo}/>
             </FormControl>
-          </Grid> */}
-          {/* <Grid item xs sx={{alignItems: 'center', justifyContent: 'center'}}>
-            <FormControl>
-              <InputLabel htmlFor="my-input">Discussões</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" />
+          </Grid>
+          <Grid item xs sx={{alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+            <FormControl sx={{width: '100%'}}>
+              <InputLabel htmlFor="my-input"/>
+              <Input id="my-input" aria-describedby="my-helper-text"
+                value={discussao.descricao}/>
             </FormControl>
-          </Grid> */}
-          <Grid>
-            {/* <Comentario/> */}
+          </Grid>
+          <Grid sx={{width: '100%'}}>
+            <Comentario/>
+          </Grid>
+          <Grid sx={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}}>
+            <AddCommentIcon sx={{    cursor: 'pointer'}}
+              onClick={() => navigate(`criarComentario`)}
+            />
           </Grid>
         </Grid>
       </Grid>
