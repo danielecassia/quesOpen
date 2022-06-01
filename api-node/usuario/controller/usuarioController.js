@@ -47,7 +47,7 @@ router.post('/',
       const user = await usuarioService.getCurrentUser(req.user.id_usuario);
       res.status(200).json(user);
     } catch (error) {
-      next(error);
+      console.log(error);
     }
   });
 

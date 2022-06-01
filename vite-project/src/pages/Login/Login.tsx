@@ -48,6 +48,10 @@ export function Login() {
               </div>
               <button
                 type='submit'
+<<<<<<< HEAD
+=======
+                // onClick={()=>navigate(`home`)}
+>>>>>>> main
                 >Entrar</button>
             </form>
             <div className="login-footer">
