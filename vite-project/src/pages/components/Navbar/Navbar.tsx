@@ -15,18 +15,18 @@ import AdbIcon from '@mui/icons-material/Adb';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const pages = ['Matérias'];
-const settings = ['Minhas Discussões', 'Perfil', 'Sair'];
-
-const navigate = useNavigate();
-function clickLogout(ev) {
-  ev.preventDefault();
-  axios.post('/logout')
-  .then((res) => navigate('/'))
-  .catch((error) => alert(error.message));
-}
 
 const ResponsiveAppBar = () => {
+  const pages = ['Matérias'];
+  const settings = ['Minhas Discussões', 'Perfil', 'Sair'];
+  
+  const navigate = useNavigate();
+  function clickLogout(ev) {
+    ev.preventDefault();
+    axios.post('/logout')
+    .then((res) => navigate('/'))
+    .catch((error) => alert(error.message));
+  }
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
