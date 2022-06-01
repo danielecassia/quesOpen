@@ -40,9 +40,10 @@ router.post('/',
         createdAt: now,
         updatedAt: now,
         data_discussao: now,
-        usuarioIdUsuario: req.body.usuarioIdUsuario,
-        disciplinaIdDisciplina: req.body.disciplinaIdDisciplina,
+        usuarioIdUsuario: req.user.id_usuario,
+        disciplinaIdDisciplina: req.body.id_disc,
       };
+      // console.log(discussao);
       const discussaoCreated = await discussaoService.createDiscussao(discussao);
       res.status(200).json(discussaoCreated);
     } catch (error) {
