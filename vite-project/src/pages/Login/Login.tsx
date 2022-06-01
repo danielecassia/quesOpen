@@ -58,7 +58,8 @@ export function Login() {
                   color="black"
                   href="./register">
                   {'Cadastre-se aqui'}
-                  </Link> </p>
+                </Link> 
+              </p>
             </div>
           </div>
         </div>

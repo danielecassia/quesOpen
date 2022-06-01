@@ -1,4 +1,3 @@
-import ResponsiveAppBar from '../components/Navbar/Navbar';
 import ImagemTeste from '../../assets/imagens/logo.svg';
 import * as React from 'react';
 import Box, { BoxProps } from '@mui/material/Box';
@@ -67,9 +66,6 @@ export function Home() {
     
     return (
         <div className="containerHome" style={{ width: '100%', height: '100%' }}>
-            <div>
-                <ResponsiveAppBar />
-            </div>
             <div className="divBoxHome">
             {/* <div className="divBoxHome" style={{ backgroundColor: 'red', height: '100%'}}> */}
                 <Box sx={{ gridAutoRows: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

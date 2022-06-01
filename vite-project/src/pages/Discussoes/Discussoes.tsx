@@ -2,7 +2,6 @@ import { Box, Stack, Skeleton } from "@mui/material";
 import React, { useState } from "react";
 import Post from "../Post/Post";
 import Button from '@mui/material/Button';
-import ResponsiveAppBar from '../components/Navbar/Navbar';
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
@@ -38,7 +37,6 @@ export function DiscussoesTeste(){
 
   return (
     <div>
-      <ResponsiveAppBar/>
       <Box flex={3} p={{ xs: 0, md: 2 }}>
         <Button variant="contained" color="success"
           onClick={()=>navigate(`criaDiscussao`)}>

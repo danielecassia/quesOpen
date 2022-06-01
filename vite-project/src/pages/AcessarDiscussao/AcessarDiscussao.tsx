@@ -1,13 +1,11 @@
 import Grid from '@mui/material/Grid';
-import ResponsiveAppBar from '../components/Navbar/Navbar';
 import { FormControl, FormHelperText, InputLabel, Input } from '@mui/material';
-import { Comentario } from '../Comentario/Comentario';
+import Comentario from '../Comentario/Comentario';
 
 export function AcessarDiscussao(){
 
   return (
     <div>
-      <ResponsiveAppBar/>
       <Grid container spacing={2} sx={{marginTop: 'auto'}}>
         <Grid item xs container direction="column" spacing={2}
           sx={{alignItems: 'center', display: 'flex', marginTop: 'initial', width: '100%'}}>
