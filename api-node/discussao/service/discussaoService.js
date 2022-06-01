@@ -55,6 +55,20 @@ class discussaoService {
     return discussoesDisciplina;
   }
 
+  getDiscussaoById = async(discussaoId) => {
+    const discussaoPorId = discussao.findOne({
+      where: {
+        id_discussao: discussaoId,
+      },
+      include: [{
+        model: disciplina,
+      }, {
+        model: usuarios,
+      }]
+    });
+    return discussaoPorId;
+  }
+
   createDiscussao = async(dadosDiscussao) => {
     const discussaoCreated = discussao.create(dadosDiscussao);
     console.log(discussaoCreated);

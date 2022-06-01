@@ -29,7 +29,7 @@ export function AppRoutes() {
           <Route path="home" element={<Navbar />}>
             <Route index element={<Home />} />
           <Route path="discussao/:id_disc" element={<DiscussoesTeste />} />
-          <Route path="discussao/acessaDiscussao" element={<AcessarDiscussao />} />
+          <Route path="discussao/acessaDiscussao/:id_disc" element={<AcessarDiscussao />} />
           <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
           </Route>
           <Route path="*" element={<NotFound />} />
