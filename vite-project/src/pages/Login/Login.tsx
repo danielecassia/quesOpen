@@ -4,6 +4,7 @@ import axios from 'axios';
 import {
   useNavigate
   } from "react-router-dom";
+import Link from '@mui/material/Link';
 import logo from '../../assets/imagens/logo.svg';
 
 export function Login() {
@@ -51,7 +52,13 @@ export function Login() {
                 >Entrar</button>
             </form>
             <div className="login-footer">
-              <p>Ainda não tem uma conta? <a href="./register">Cadastre-se aqui</a> </p>
+              <p>Ainda não tem uma conta? 
+                <Link 
+                  underline="none" 
+                  color="black"
+                  href="./register">
+                  {'Cadastre-se aqui'}
+                  </Link> </p>
             </div>
           </div>
         </div>
