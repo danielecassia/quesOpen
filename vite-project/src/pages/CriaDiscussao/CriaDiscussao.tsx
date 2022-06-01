@@ -1,6 +1,5 @@
 import Grid from '@mui/material/Grid';
 import * as React from 'react';
-import ResponsiveAppBar from '../components/Navbar/Navbar';
 import { FormControl, FormHelperText, InputLabel, Input, Button } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -22,7 +21,6 @@ export function CriaDiscussao(){
 
   return (
     <div>
-      <ResponsiveAppBar/>
       <form onSubmit={onClickDiscussao}>
       <Grid container spacing={2}>
         <Grid item xs container direction="column" spacing={2}
