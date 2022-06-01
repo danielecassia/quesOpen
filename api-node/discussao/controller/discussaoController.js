@@ -30,6 +30,15 @@ router.get('/discussoes-disciplina/:id',async(req,res) => {
   }
 })
 
+router.get('/discussaoporid/:id', async(req,res)=> {
+  try {
+    const discussaoById = await discussaoService.getDiscussaoById(req.params.id);
+    res.status(200).json(discussaoById);
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 router.post('/',
   async (req, res) => {
     try {
