@@ -73,3 +73,27 @@ Sprint 2:
 Sprint 3:  
 
 - Implementação de testes de software [Alexandre, Arthur, Daniele e Henrique] 
+
+Documentação da Arquitetura
+
+Arquitetura Hexagonal
+
+1) Por que estamos adotando:
+Para separar e mediar a comunicação entre o domínio e o resto do sistema, tornando
+o domínio limpo de tecnologia, utilizando portas e adaptadores para essa tarefa.
+
+2) Portas e adaptadores:
+No sistema existem adaptadores e portas de entrada e saída para cada entidade
+(Disciplina, Discussão, Usuário etc). Tendo a função de fazer a ponte para se buscar e
+repassar as informações do banco de dados pro frontend.
+
+DDD
+
+1) Foram criadas entidades com nomenclaturas definidas pela linguagem ubíqua na
+camada de domínio do programa, separando-a da tecnologia.
+
+2) Temos como exemplo de entidade: Discussão, Disciplina, Usuário e Comentário.
+As classes “service” funcionam como repositórios, utilizadas para recuperar as
+entidades presentes no banco de dados. Exemplo: "disciplinaService".
+Já as classes “controller” funcionam da mesma forma que os serviços do DDD. Ex:
+"disciplinaController".
