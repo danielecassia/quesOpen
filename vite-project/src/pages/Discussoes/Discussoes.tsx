@@ -6,19 +6,11 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import {
-  useNavigate,
-  Link
+  useNavigate
   } from "react-router-dom";
 
 export function DiscussoesTeste(){
   const navigate = useNavigate();
-
-  function OnClickLogout(ev) {
-    ev.preventDefault();
-    axios.post('/logout')
-    .then((res) => navigate('/'))
-    .catch((error) => alert(error.message));
-  }
 
   let {id_disc} = useParams();
   const [discussoesDisc, setDiscussoesDisc] = useState([]);
@@ -38,13 +30,9 @@ export function DiscussoesTeste(){
   return (
     <div>
       <Box flex={3} p={{ xs: 0, md: 2 }}>
-        <Button variant="contained" color="success"
+        <Button variant="contained" sx={{bgcolor:'gray', "&:hover":{bgcolor:'black'}}}
           onClick={()=>navigate(`criaDiscussao`)}>
           Criar Nova Discussão
-        </Button>
-        <Button variant="contained" color="success"
-          onClick={OnClickLogout}>
-          Logout
         </Button>
           {itensDisciplinas}
       </Box>
