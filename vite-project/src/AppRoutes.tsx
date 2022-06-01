@@ -23,9 +23,9 @@ export function AppRoutes() {
           <Route path="/" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="home" element={<Home />} />
-          <Route path="discussao/:id" element={<DiscussoesTeste />} />
+          <Route path="discussao/:id_disc" element={<DiscussoesTeste />} />
           <Route path="discussao/acessaDiscussao" element={<AcessarDiscussao />} />
-          <Route path="discussao/:id/criaDiscussao" element={<CriaDiscussao />} />
+          <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
