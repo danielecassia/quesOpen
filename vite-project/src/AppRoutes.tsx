@@ -12,6 +12,7 @@ import { DiscussoesTeste } from './pages/Discussoes/Discussoes';
 import { AcessarDiscussao } from './pages/AcessarDiscussao/AcessarDiscussao';
 import { CriaDiscussao } from './pages/CriaDiscussao/CriaDiscussao';
 import { CriaComentario } from './pages/CriaComentario/CriaComentario';
+import { Perfil } from  './pages/Pefil/Perfil';
 import { Navbar } from './pages/components/Navbar/Navbar';
 import { NotFound } from './pages/NotFound/NotFound';
 import { MInhasDiscussoes } from "./pages/MinhasDiscussoes/MinhasDiscussoes";
@@ -35,6 +36,8 @@ export function AppRoutes() {
           <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
           <Route path="discussao/acessaDiscussao/:id_disc/CriaComentario" element={<CriaComentario />} />
           <Route path="minhasDiscussoes" element={<MInhasDiscussoes/>}/>
+          {/* provisoria de perfil */}
+          <Route path="paginaPerfil" element={<Perfil/>} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
