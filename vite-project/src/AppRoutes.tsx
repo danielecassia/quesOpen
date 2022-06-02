@@ -14,6 +14,7 @@ import { CriaDiscussao } from './pages/CriaDiscussao/CriaDiscussao';
 import { CriaComentario } from './pages/CriaComentario/CriaComentario';
 import { Navbar } from './pages/components/Navbar/Navbar';
 import { NotFound } from './pages/NotFound/NotFound';
+import { MInhasDiscussoes } from "./pages/MinhasDiscussoes/MinhasDiscussoes";
 
 export function AppRoutes() {
   axios.defaults.baseURL = 'http://localhost:3001';
@@ -33,6 +34,7 @@ export function AppRoutes() {
           <Route path="discussao/acessaDiscussao/:id_disc" element={<AcessarDiscussao />} />
           <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
           <Route path="discussao/acessaDiscussao/:id_disc/CriaComentario" element={<CriaComentario />} />
+          <Route path="minhasDiscussoes" element={<MInhasDiscussoes/>}/>
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

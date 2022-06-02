@@ -31,7 +31,7 @@ export function Navbar() {
     {
       id: 1,
       nome: 'Minhas Discussões',
-      link: ()=>navigate(`minhasDiscucoes`),
+      link: ()=>navigate(`minhasDiscussoes`),
     },
     {
       id: 2,

@@ -28,8 +28,9 @@ class discussaoService {
         usuarioIdUsuario: userId,
       },
       include: [{
-        model: disciplina,
-        required: true,
+        model: disciplina, usuarios,
+      }, {
+        model: usuarios,
       }]
     })
     return discussoesUsuario;
