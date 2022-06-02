@@ -14,8 +14,8 @@ export function CriaComentario(){
 
   function onClickComentario(ev) {
     ev.preventDefault();
-    axios.post('/discussoes', {titulo, descricao, id_disc})
-    .then((res) => navigate(`/discussao/${id_disc}`))
+    axios.post('/comentario', {titulo, descricao, id_disc})
+    .then((res) => navigate(`/comentario/${id_disc}`))
     .catch((error) => alert(error.message));
   }
 

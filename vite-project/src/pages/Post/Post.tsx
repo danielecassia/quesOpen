@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 
 
-const Post = (props) => {
+const Post = (props) => { 
   let maiusc = (props.disc.usuario.nome_usuario[0]).toUpperCase();
   return (
     // {console.log(props.disc.id_discussao);}

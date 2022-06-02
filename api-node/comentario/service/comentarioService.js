@@ -1,6 +1,8 @@
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
-const comentario = require('../model/comentarioModel')
+const comentario = require('../model/comentarioModel');
+const discussao = require('../../discussao/model/discussaoModel');
+const usuario = require('../../usuario/model/usuarioModel');
 
 class comentarioService {
 
@@ -10,7 +12,17 @@ class comentarioService {
   };
 
   getComentariosByDiscussao = async (idDiscussao) => {
-    const createdComentario = comentario.findAll({where: {discussaoIdDiscussao: idDiscussao}});
+    const createdComentario = comentario.findAll(
+      {
+        where: {discussaoIdDiscussao: idDiscussao},
+        include: [{
+          model: discussao,
+        },
+        {
+          model: usuario,
+        }] 
+      }
+      );
     return createdComentario;
   };
 

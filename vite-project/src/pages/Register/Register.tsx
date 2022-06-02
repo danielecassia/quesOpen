@@ -27,7 +27,7 @@ export function Register() {
       alert('Senhas devem ser iguais');
       return;
     }
-    axios.post('/usuarios/', {email,senha,nome,email_confirm,senha_confirm,data_nasc})
+    axios.post('/usuarios', {email,senha,nome,email_confirm,senha_confirm,data_nasc})
     .then((res) =>{alert('Usuário cadastrado com sucesso.'); navigate('/')})
     .catch((error) => console.log(error.message));
   }

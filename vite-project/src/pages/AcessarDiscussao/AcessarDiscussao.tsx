@@ -13,7 +13,7 @@ import axios from 'axios';
 
 export function AcessarDiscussao(){
   const navigate = useNavigate();
-
+  
   let {id_disc} = useParams();
   const [discussao, setDiscussao] = useState([]);
 
@@ -22,16 +22,21 @@ export function AcessarDiscussao(){
         .then(
             (res) => setDiscussao(res.data))
         .catch((err) => console.log(err.response))
-    }, [id_disc]);
-    console.log(discussao);
+    }, []);
+    // console.log(discussao);
 
-    const [comentarios, setComentario] = useState([]);
-  useEffect (() => {
-    axios.get(`/comentarios/discussao/${id_disc}`)
-    .then((res) => setComentario(res.data))
-    .catch((err) => console.log(err.response))
-  }, []);
-  console.log(comentarios);
+  //   const [comentarios, setComentario] = useState([]);
+  // useEffect (() => {
+  //   axios.get(`/comentarios/discussao/${id_disc}`)
+  //   .then((res) => setComentario(res.data))
+  //   .catch((err) => console.log(err.response))
+  // }, []);
+  // console.log(comentarios);
+
+  // const ComentariosDiscussao = comentarios.map(comentario => (
+  //   <Comentario coment={comentario}/>
+  //   <Comentario/>
+  // ));
 
   return (
     <div>
@@ -43,18 +48,20 @@ export function AcessarDiscussao(){
               <InputLabel htmlFor="my-input"/>
               <Input id="my-input" 
                 aria-describedby="my-helper-text"
-                value={discussao.titulo}/>
+                value={discussao.titulo}
+                />
             </FormControl>
           </Grid>
           <Grid item xs sx={{alignItems: 'center', justifyContent: 'center', width: '100%'}}>
             <FormControl sx={{width: '100%'}}>
               <InputLabel htmlFor="my-input"/>
               <Input id="my-input" aria-describedby="my-helper-text"
-                value={discussao.descricao}/>
+                value={discussao.descricao}
+                />
             </FormControl>
           </Grid>
           <Grid sx={{width: '100%'}}>
-            <Comentario/>
+            <Comentario id_discussao={id_disc}/>
           </Grid>
           <Grid sx={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}}>
             <AddCommentIcon sx={{    cursor: 'pointer'}}

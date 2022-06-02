@@ -11,6 +11,7 @@ import { Home } from './pages/Home/Home';
 import { DiscussoesTeste } from './pages/Discussoes/Discussoes';
 import { AcessarDiscussao } from './pages/AcessarDiscussao/AcessarDiscussao';
 import { CriaDiscussao } from './pages/CriaDiscussao/CriaDiscussao';
+import { CriaComentario } from './pages/CriaComentario/CriaComentario';
 import { Navbar } from './pages/components/Navbar/Navbar';
 import { NotFound } from './pages/NotFound/NotFound';
 
@@ -31,6 +32,7 @@ export function AppRoutes() {
           <Route path="discussao/:id_disc" element={<DiscussoesTeste />} />
           <Route path="discussao/acessaDiscussao/:id_disc" element={<AcessarDiscussao />} />
           <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
+          <Route path="discussao/acessaDiscussao/:id_disc/CriaComentario" element={<CriaDiscussao />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

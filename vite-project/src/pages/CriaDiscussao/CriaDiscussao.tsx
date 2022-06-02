@@ -2,12 +2,20 @@ import Grid from '@mui/material/Grid';
 import * as React from 'react';
 import { FormControl, FormHelperText, InputLabel, Input, Button } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import axios from 'axios';
 
 export function CriaDiscussao(){
 
   const navigate = useNavigate();
   const {id_disc} = useParams(); 
+  // const [usuarioAtual, setUsuarioAtual] = useState('');
+  // axios.get('/usuarios/me').then((res) => setUsuarioAtual(res.data))
+  // .catch((err) => console.log("NAO TA LOGADO"));
+  // console.log(usuarioAtual);
+  // if(usuarioAtual=='undefined' || usuarioAtual == ''){
+  //   navigate('/');
+  // }
 
   const [titulo, setTitulo] = React.useState('');
   const [descricao, setDescricao] = React.useState('');
@@ -15,7 +23,7 @@ export function CriaDiscussao(){
   function onClickDiscussao(ev) {
     ev.preventDefault();
     axios.post('/discussoes', {titulo, descricao, id_disc})
-    .then((res) => navigate(`/discussao/${id_disc}`))
+    .then((res) => navigate(`/home/discussao/${id_disc}`))
     .catch((error) => alert(error.message));
   }
 
