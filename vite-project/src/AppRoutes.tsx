@@ -32,7 +32,7 @@ export function AppRoutes() {
           <Route path="discussao/:id_disc" element={<DiscussoesTeste />} />
           <Route path="discussao/acessaDiscussao/:id_disc" element={<AcessarDiscussao />} />
           <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
-          <Route path="discussao/acessaDiscussao/:id_disc/CriaComentario" element={<CriaDiscussao />} />
+          <Route path="discussao/acessaDiscussao/:id_disc/CriaComentario" element={<CriaComentario />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

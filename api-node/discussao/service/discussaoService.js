@@ -7,12 +7,6 @@ const disciplina = require('../../disciplina/model/disciplinaModel');
 class discussaoService {
 
   getAllDiscussoes = async () => {
-    // const createdDiscussao = sequelize.query(
-    //   'SELECT * FROM discussaos',
-    //   {
-    //     type: QueryTypes.SELECT,
-    //   }
-    // );
     const createdDiscussao = discussao.findAll({
       include: [
         {
@@ -46,6 +40,9 @@ class discussaoService {
       where: {
         disciplinaIdDisciplina: disciplinaId,
       },
+      order: [
+        ['data_discussao','DESC']
+      ],
       include: [{
         model: disciplina, usuarios,
       }, {

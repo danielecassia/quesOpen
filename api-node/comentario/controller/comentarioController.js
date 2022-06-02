@@ -31,9 +31,10 @@ router.post('/',
         createdAt: now,
         updatedAt: now,
         data_comentario: now,
-        usuarioIdUsuario: req.body.usuarioIdUsuario,
-        discussaoIdDiscussao: req.body.discussaoIdDiscussao,
+        usuarioIdUsuario: req.body.idUsuarioLogado,
+        discussaoIdDiscussao: req.body.id_disc,
       };
+      console.log(comentario)
       const comentarioCreated = await comentarioService.createComentario(comentario);
       res.status(200).json(comentarioCreated);
     } catch (error) {

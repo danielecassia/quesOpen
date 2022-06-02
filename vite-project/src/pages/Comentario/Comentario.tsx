@@ -17,14 +17,12 @@ import {
 const Comentario = (props) => {
     
     // let maiusc = props.comentario.usuario.nome_usuario;
-    console.log(props.id_discussao);
     const [comentarios, setComentario] = useState([]);
     useEffect (() => {
       axios.get(`/comentarios/discussao/${props.id_discussao}`)
       .then((res) => setComentario(res.data))
       .catch((err) => console.log(err.response))
     }, []);
-    console.log(comentarios);
 
     const ComentariosDiscussao = comentarios.map(comentario => (
         <Card sx={{ margin: 2, width: '100%'}}>

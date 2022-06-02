@@ -2,6 +2,7 @@ import Grid from '@mui/material/Grid';
 import * as React from 'react';
 import { FormControl, FormHelperText, InputLabel, Input, Button } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import axios from 'axios';
 
 export function CriaComentario(){
@@ -9,13 +10,23 @@ export function CriaComentario(){
   const navigate = useNavigate();
   const {id_disc} = useParams(); 
 
+  const[usuarioAtual, setUsuarioAtual] = React.useState({});
+  
+  useEffect (() => {
+    axios.get(`/usuarios/me/`)
+    .then((res) => setUsuarioAtual(res.data))
+    .catch((err) => console.log(err.response))
+  }, []);
+
+  const idUsuarioLogado = usuarioAtual.id_usuario;
+
   const [titulo, setTitulo] = React.useState('');
   const [descricao, setDescricao] = React.useState('');
 
   function onClickComentario(ev) {
     ev.preventDefault();
-    axios.post('/comentario', {titulo, descricao, id_disc})
-    .then((res) => navigate(`/comentario/${id_disc}`))
+    axios.post('/comentarios/', {titulo, descricao, idUsuarioLogado, id_disc})
+    .then((res) => navigate(`/home/discussao/acessaDiscussao/${id_disc}`)) 
     .catch((error) => alert(error.message));
   }
 
@@ -25,15 +36,9 @@ export function CriaComentario(){
       <Grid container spacing={2}>
         <Grid item xs container direction="column" spacing={2}
           sx={{alignItems: 'center', display: 'flex'}}>
-          <Grid item xs>
-            <FormControl>
-              <InputLabel htmlFor="my-input">Título</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" value={titulo} onChange={(ev) => setTitulo(ev.target.value)}/>
-            </FormControl>
-          </Grid>
           <Grid item xs sx={{alignItems: 'center', justifyContent: 'center'}}>
             <FormControl>
-              <InputLabel htmlFor="my-input">Discussões</InputLabel>
+              <InputLabel htmlFor="my-input">Comentário</InputLabel>
               <Input id="my-input" aria-describedby="my-helper-text" value={descricao} onChange={(ev) => setDescricao(ev.target.value)}/>
             </FormControl>
           </Grid>
@@ -41,7 +46,6 @@ export function CriaComentario(){
         </Grid>
       </Grid>
       </form>
-
     </div>
   );
 };
