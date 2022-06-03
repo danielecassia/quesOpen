@@ -51,6 +51,15 @@ router.post('/',
     }
   });
 
+  router.delete('/:id', async (req, res, next) => {
+    try {
+      const userId = req.params.id;
+      await usuarioService.deletarUsuario(userId);
+      res.status(204).end();
+    } catch (error) {
+      console.log(error);
+    }
+  });
   // router.post('/teste',
   // async (req, res) => {
   //   try {

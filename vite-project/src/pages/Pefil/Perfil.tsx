@@ -5,6 +5,8 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -14,47 +16,111 @@ const Img = styled('img')({
 });
 
 export function Perfil() {
-    return (
-        <Paper
-            sx={{
-                p: 2,
-                margin: 'auto',
-                maxWidth: 700,
-                flexGrow: 1,
-                backgroundColor: (theme) =>
-                    theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-            }}
-        >
-            <Grid container spacing={2}>
-                <Grid item xs={12} sm container>
-                    <Grid item xs container direction="column" spacing={2}>
-                        <Grid item xs>
-                            <Typography gutterBottom variant="subtitle1" component="div">
-                                Nome da Pessoinha
-                            </Typography>
-                            <Typography variant="body2" gutterBottom>
-                                Email
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Data de Nascimento
-                            </Typography>
+    const navigate = useNavigate();
+
+    function calculaIdade(dataNasc){ 
+        var dataAtual = new Date();
+        var anoAtual = dataAtual.getFullYear();
+        var anoNascParts = dataNasc.split('-');
+        var diaNasc =anoNascParts[2];
+        var mesNasc =anoNascParts[1];
+        var anoNasc =anoNascParts[0];
+        var idade = anoAtual - anoNasc;
+        var mesAtual = dataAtual.getMonth() + 1; 
+        //Se mes atual for menor que o nascimento, nao fez aniversario ainda;  
+        if(mesAtual < mesNasc){
+        idade--; 
+        } else {
+        //Se estiver no mes do nascimento, verificar o dia
+        if(mesAtual == mesNasc){ 
+        if(new Date().getDate() < diaNasc ){ 
+        //Se a data atual for menor que o dia de nascimento ele ainda nao fez aniversario
+        idade--; 
+        }
+        }
+        } 
+        return idade;
+       }
+
+    const [usuarioAtual, setUsuarioAtual] = React.useState([]);
+    function getDataAsync() {
+        const url = `/usuarios/me`;
+        axios(url)
+          .then(response => {        
+            setUsuarioAtual(response.data);
+          })
+    }
+    // const [mount, ]
+    React.useEffect(() => {
+        // async function getInfos(){
+        //     try {
+        //         const resposta = await axios.get(`/usuarios/me/`)
+        //         .then((res) => setUsuarioAtual(res.data))
+        //         .catch((err) => console.log(err.response));
+        //         console.log(resposta);
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
+        // getInfos();
+        getDataAsync();
+    }, []);    
+    //    const idadeAtual()
+
+    if(usuarioAtual.length == 0){
+        return(
+            <div>
+                <h4>Carregando...</h4>
+            </div>
+        )
+    }
+    else{
+        function handleDelete() {
+            axios.delete(`/usuarios/${usuarioAtual.id_usuario}`);
+            navigate('/');
+          }
+        return (
+            <Paper
+                sx={{
+                    p: 2,
+                    margin: 'auto',
+                    maxWidth: 700,
+                    flexGrow: 1,
+                    backgroundColor: (theme) =>
+                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                }}
+            >
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm container>
+                        <Grid item xs container direction="column" spacing={2}>
+                            <Grid item xs>
+                                <Typography gutterBottom variant="subtitle1" component="div">
+                                    {usuarioAtual.nome_usuario}
+                                </Typography>
+                                <Typography variant="body2" gutterBottom>
+                                    {usuarioAtual.email}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    {usuarioAtual.data_nasc.substring(0,10)}
+                                </Typography>
+                            </Grid>
+                            <Grid item>
+                                <Typography sx={{ cursor: 'pointer' }} variant="body2">
+                                    <Button variant="contained" sx={{ bgcolor: 'black', "&:hover": { bgcolor: 'red' } }}
+                                        onClick={() => handleDelete()}>
+                                        Deletar Conta
+                                    </Button>
+                                </Typography>
+                            </Grid>
                         </Grid>
                         <Grid item>
-                            <Typography sx={{ cursor: 'pointer' }} variant="body2">
-                                <Button variant="contained" sx={{ bgcolor: 'black', "&:hover": { bgcolor: 'red' } }}
-                                    onClick={() => alert("Conta deletada!!!! PROVISORIOOO")}>
-                                    Deletar Conta
-                                </Button>
+                            <Typography variant="subtitle1" component="div">
+                                {calculaIdade(usuarioAtual.data_nasc)} anos
                             </Typography>
                         </Grid>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="subtitle1" component="div">
-                            Idade
-                        </Typography>
-                    </Grid>
                 </Grid>
-            </Grid>
-        </Paper>
-    );
+            </Paper>
+        );
+    }
 }

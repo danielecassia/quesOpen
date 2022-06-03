@@ -11,23 +11,32 @@ import {
 export function MInhasDiscussoes() {
   const navigate = useNavigate();
 
-  const [usuarioAtual, setUsuarioAtual] = React.useState({});
-
+  const [usuarioAtual, setUsuarioAtual] = React.useState([]);
+  function getDataAsync() {
+    const url = `/usuarios/me`;
+    axios(url)
+      .then(response => {        
+        setUsuarioAtual(response.data);
+      })
+}
   useEffect(() => {
-    axios.get(`/usuarios/me/`)
-      .then((res) => setUsuarioAtual(res.data))
-      .catch((err) => console.log(err.response))
+    getDataAsync();
   }, []);
 
-  const idUsuarioLogado = usuarioAtual.id_usuario;
-
-  return (
-    <div>
-      {/* AQUI É SÓ DESCOMENTAR AS COISAS E FAZER A REQUISIÇÃO CERTINHA  */}
-      <Box flex={3} p={{ xs: 0, md: 2 }}>
-        <PostMinhasDiscussoes id_usuario={idUsuarioLogado} />
-      </Box>
-
-    </div>
-  );
+  if(usuarioAtual.length == 0){
+    return(
+      <div><h4>Carregando</h4></div>
+    )
+  }
+  else{
+    const idUsuarioLogado = usuarioAtual.id_usuario;
+    return (
+      <div>
+        {/* AQUI É SÓ DESCOMENTAR AS COISAS E FAZER A REQUISIÇÃO CERTINHA  */}
+        <Box flex={3} p={{ xs: 0, md: 2 }}>
+          <PostMinhasDiscussoes id_usuario={idUsuarioLogado} />
+        </Box>
+      </div>
+    );
+  }
 };
