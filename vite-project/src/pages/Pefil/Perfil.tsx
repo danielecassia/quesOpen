@@ -42,7 +42,7 @@ export function Perfil() {
                         <Grid item>
                             <Typography sx={{ cursor: 'pointer' }} variant="body2">
                                 <Button variant="contained" sx={{ bgcolor: 'black', "&:hover": { bgcolor: 'red' } }}
-                                    onClick={() => navigate(`criaDiscussao`)}>
+                                    onClick={() => alert("Conta deletada!!!! PROVISORIOOO")}>
                                     Deletar Conta
                                 </Button>
                             </Typography>
