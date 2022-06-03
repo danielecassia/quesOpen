@@ -38,11 +38,6 @@ const PostMinhasDiscussoes = (props) => {
               {discussao.usuario.nome_usuario[0]}
             </Avatar>
           }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVert />
-            </IconButton>
-          }
           title={discussao.titulo}
           subheader={discussao.data_discussao.substring(0,10)}
         />

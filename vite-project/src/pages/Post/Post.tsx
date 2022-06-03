@@ -28,11 +28,6 @@ const Post = (props) => {
                 {maiusc}
               </Avatar>
             }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVert />
-              </IconButton>
-            }
             title={props.disc.titulo}
             subheader={(props.disc.data_discussao.substring(0, 10))}
           />
