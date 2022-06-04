@@ -60,4 +60,14 @@ router.post('/',
     }
   });
 
+  router.delete('/:id', async (req, res) => {
+    try {
+      const discId = req.params.id;
+      await discussaoService.deletarDiscussao(discId);
+      res.status(204).end();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
   module.exports = router;
