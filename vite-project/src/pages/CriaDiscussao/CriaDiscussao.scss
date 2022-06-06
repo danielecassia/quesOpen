@@ -1,0 +1,22 @@
+.alert-discussao{
+  background-color: red !important;
+  margin: 1em 10em;
+  text-decoration: none !important;
+  color: blue;
+}
+
+.div-discussao{
+  margin: 4em 10em;
+}
+
+.alert-discussao:hover{
+  background-color: rgb(168, 1, 1) !important;
+}
+
+:link{
+  text-decoration: none !important;
+}
+
+:link:visited{
+  text-decoration: none !important;
+}

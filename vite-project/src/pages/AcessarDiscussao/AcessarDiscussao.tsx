@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Alert } from '@mui/material';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -33,39 +35,30 @@ export function AcessarDiscussao(){
             setUsuarioAtual(response.data);
           })
     };
-    // const [mount, ]
     useEffect(() => {
         getDataAsync();
     }, []); 
-    console.log(discussao);
-    console.log(usuarioAtual);
-
-  //   const [comentarios, setComentario] = useState([]);
-  // useEffect (() => {
-  //   axios.get(`/comentarios/discussao/${id_disc}`)
-  //   .then((res) => setComentario(res.data))
-  //   .catch((err) => console.log(err.response))
-  // }, []);
-  // console.log(comentarios);
-
-  // const ComentariosDiscussao = comentarios.map(comentario => (
-  //   <Comentario coment={comentario}/>
-  //   <Comentario/>
-  // ));
-  const [conteudoDiscussao, setConteudoDiscussao] = useState('');
 
   if(discussao.length==0){
-    return(<div><h4>Carregando...</h4></div>)
+    return(<div><h4>Erro ao carregar discussão ou não foi possível encontrar</h4></div>)
   }
   else{
     if(usuarioAtual.length == 0){
-      return(<div>a</div>);
+      return(
+        <div>
+        <Link to='/'><Alert className='alert-discussao' variant="filled">
+            Erro! Usuário não logado.
+        </Alert>
+        </Link>
+        </div>
+        
+      );
     }
     else{
       if(usuarioAtual.id_usuario == discussao.usuarioIdUsuario){
         function handleDelete() {
           axios.delete(`/discussoes/${discussao.id_discussao}`);
-          navigate('/');
+          navigate('/home');
         }
         return (
           <div>

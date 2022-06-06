@@ -11,6 +11,9 @@ const disciplina = sequelize.define('disciplina', {
   nome_disciplina: {
     type: DataTypes.STRING,
     allowNull: false,
+  },
+  imagem_disciplina: {
+    type: DataTypes.STRING,
   }
 });
 
