@@ -95,13 +95,13 @@ export function Perfil() {
                         <Grid item xs container direction="column" spacing={2}>
                             <Grid item xs>
                                 <Typography gutterBottom variant="subtitle1" component="div">
-                                    {usuarioAtual.nome_usuario}
+                                    Nome: {usuarioAtual.nome_usuario}
                                 </Typography>
                                 <Typography variant="body2" gutterBottom>
-                                    {usuarioAtual.email}
+                                    E-mail: {usuarioAtual.email}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    {usuarioAtual.data_nasc.substring(0,10)}
+                                    Data de Nascimento: {usuarioAtual.data_nasc.substring(0,10)}
                                 </Typography>
                             </Grid>
                             <Grid item>
@@ -115,7 +115,7 @@ export function Perfil() {
                         </Grid>
                         <Grid item>
                             <Typography variant="subtitle1" component="div">
-                                {calculaIdade(usuarioAtual.data_nasc)} anos
+                                Idade: {calculaIdade(usuarioAtual.data_nasc)} anos
                             </Typography>
                         </Grid>
                     </Grid>
