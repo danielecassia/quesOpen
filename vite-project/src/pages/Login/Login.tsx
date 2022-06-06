@@ -56,9 +56,9 @@ export function Login() {
               <p>Ainda não tem uma conta? 
                 <Link 
                   underline="none" 
-                  color="black"
+                  color="#444"
                   href="./register">
-                  {'Cadastre-se aqui'}
+                  {' Cadastre-se aqui'}
                 </Link> 
               </p>
             </div>

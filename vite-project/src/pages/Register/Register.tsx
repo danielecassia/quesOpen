@@ -7,8 +7,17 @@ import { useNavigate } from 'react-router-dom';
 
 export function Register() {
   const navigate = useNavigate();
-  axios.get('/usuarios/me').then((res) => navigate('/home'))
-  .catch((err) => console.log("NAO TA LOGADO"));
+  const [usuarioAtual, setUsuarioAtual] = React.useState([]);
+    function getDataAsync() {
+        const url = `/usuarios/me`;
+        axios(url)
+          .then(response => {        
+            setUsuarioAtual(response.data);
+          })
+    };
+    React.useEffect(() => {
+        getDataAsync();
+    }, []);
 
   const [email, setEmail] = React.useState('');
   const [senha, setSenha] = React.useState('');
@@ -32,64 +41,69 @@ export function Register() {
     .catch((error) => console.log(error.message));
   }
 
-  return (
-    <div className="register">
-      <div className="register-card">
-        <div className="cima">
-          <img src={logo} alt="" />
-        </div>
-
-        <div className="baixo">
-          <div className="register-content">
-            <form onSubmit={onClickRegister}>
-              <div className='inputs'>
-                  <div>
-                    <input
-                    type='text'
-                    placeholder='Nome'
-                      value={nome}
-                      onChange={(ev) => setNome(ev.target.value)}
-                    />
-                    <input
-                    type='text'
-                    placeholder='Email'
-                      value={email}
-                      onChange={(ev) => setEmail(ev.target.value)}
-                    />
-                    <input
-                    type="password"
-                    placeholder='Senha'
-                      value={senha}
-                      onChange={(ev) => setSenha(ev.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <input
-                    type='date'
-                    placeholder='Data de Nascimento'
-                      value={data_nasc}
-                      onChange={(ev) => setDataNasc(ev.target.value)}
-                    />
-                    <input
-                    type='text'
-                    placeholder='Confirmar E-mail'
-                      value={email_confirm}
-                      onChange={(ev) => setEmailConfirm(ev.target.value)}
-                    />
-                    <input
-                    type="password"
-                    placeholder='Confirmar Senha'
-                      value={senha_confirm}
-                      onChange={(ev) => setSenhaConfirm(ev.target.value)}
-                    />
-                  </div>
-              </div>
-              <button
-                type='submit'>Cadastrar</button>
-            </form>
+  if(usuarioAtual.length != 0){
+    navigate('/home');
+  }
+  else{
+    return (
+      <div className="register">
+        <div className="register-card">
+          <div className="cima">
+            <img src={logo} alt="" />
+          </div>
+  
+          <div className="baixo">
+            <div className="register-content">
+              <form onSubmit={onClickRegister}>
+                <div className='inputs'>
+                    <div>
+                      <input
+                      type='text'
+                      placeholder='Nome'
+                        value={nome}
+                        onChange={(ev) => setNome(ev.target.value)}
+                      />
+                      <input
+                      type='text'
+                      placeholder='Email'
+                        value={email}
+                        onChange={(ev) => setEmail(ev.target.value)}
+                      />
+                      <input
+                      type="password"
+                      placeholder='Senha'
+                        value={senha}
+                        onChange={(ev) => setSenha(ev.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <input
+                      type='date'
+                      placeholder='Data de Nascimento'
+                        value={data_nasc}
+                        onChange={(ev) => setDataNasc(ev.target.value)}
+                      />
+                      <input
+                      type='text'
+                      placeholder='Confirmar E-mail'
+                        value={email_confirm}
+                        onChange={(ev) => setEmailConfirm(ev.target.value)}
+                      />
+                      <input
+                      type="password"
+                      placeholder='Confirmar Senha'
+                        value={senha_confirm}
+                        onChange={(ev) => setSenhaConfirm(ev.target.value)}
+                      />
+                    </div>
+                </div>
+                <button
+                  type='submit'>Cadastrar</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

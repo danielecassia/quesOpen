@@ -33,26 +33,9 @@ export function AcessarDiscussao(){
             setUsuarioAtual(response.data);
           })
     };
-    // const [mount, ]
     useEffect(() => {
         getDataAsync();
     }, []); 
-    console.log(discussao);
-    console.log(usuarioAtual);
-
-  //   const [comentarios, setComentario] = useState([]);
-  // useEffect (() => {
-  //   axios.get(`/comentarios/discussao/${id_disc}`)
-  //   .then((res) => setComentario(res.data))
-  //   .catch((err) => console.log(err.response))
-  // }, []);
-  // console.log(comentarios);
-
-  // const ComentariosDiscussao = comentarios.map(comentario => (
-  //   <Comentario coment={comentario}/>
-  //   <Comentario/>
-  // ));
-  const [conteudoDiscussao, setConteudoDiscussao] = useState('');
 
   if(discussao.length==0){
     return(<div><h4>Carregando...</h4></div>)
@@ -65,7 +48,7 @@ export function AcessarDiscussao(){
       if(usuarioAtual.id_usuario == discussao.usuarioIdUsuario){
         function handleDelete() {
           axios.delete(`/discussoes/${discussao.id_discussao}`);
-          navigate('/');
+          navigate('/home');
         }
         return (
           <div>
