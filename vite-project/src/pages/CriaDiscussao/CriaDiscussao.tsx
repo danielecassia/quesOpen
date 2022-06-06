@@ -48,7 +48,7 @@ export function CriaDiscussao(){
       .catch((error) => alert(error.message));
     }
     return (
-      <div>
+      <div className='div-discussao'>
         <form onSubmit={onClickDiscussao}>
           <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center'}}>
             <Paper
@@ -87,13 +87,3 @@ export function CriaDiscussao(){
     );
   }
 }
-
-
-//   return (
-//     <div>
-//       <form onSubmit={onClickDiscussao}>
-//       </form>
-
-//     </div>
-//   );
-// };

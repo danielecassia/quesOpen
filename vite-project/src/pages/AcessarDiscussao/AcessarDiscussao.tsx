@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Alert } from '@mui/material';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -38,11 +40,19 @@ export function AcessarDiscussao(){
     }, []); 
 
   if(discussao.length==0){
-    return(<div><h4>Carregando...</h4></div>)
+    return(<div><h4>Erro ao carregar discussão ou não foi possível encontrar</h4></div>)
   }
   else{
     if(usuarioAtual.length == 0){
-      return(<div>a</div>);
+      return(
+        <div>
+        <Link to='/'><Alert className='alert-discussao' variant="filled">
+            Erro! Usuário não logado.
+        </Alert>
+        </Link>
+        </div>
+        
+      );
     }
     else{
       if(usuarioAtual.id_usuario == discussao.usuarioIdUsuario){

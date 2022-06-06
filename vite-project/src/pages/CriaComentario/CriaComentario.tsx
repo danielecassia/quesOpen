@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Alert } from '@mui/material';
+import './CriaComentario.scss';
 
 export function CriaComentario(){
   const navigate = useNavigate();
@@ -65,7 +66,7 @@ export function CriaComentario(){
     .catch((error) => alert(error.message));
   }
   return (
-    <div>
+    <div className='div-comentario'>
       <form onSubmit={onClickComentario}>
       <Grid container spacing={2} sx={{ alignItems: 'center', justifyContent: 'center'}}>
           <Paper
