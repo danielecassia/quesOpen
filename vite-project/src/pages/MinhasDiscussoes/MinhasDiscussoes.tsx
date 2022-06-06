@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 
-export function MInhasDiscussoes() {
+export function MinhasDiscussoes() {
   const navigate = useNavigate();
 
   const [usuarioAtual, setUsuarioAtual] = React.useState({});
