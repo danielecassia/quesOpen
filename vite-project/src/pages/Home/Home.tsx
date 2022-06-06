@@ -46,128 +46,33 @@ export function Home() {
 
     const itensDisciplinas = disciplinas.map(disciplina =>
         (
-        <Link to={`./discussao/${disciplina.id_disciplina}`}>            
-        <Card sx={{ maxWidth: 345 }}>
-            <CardActionArea sx={{ alignItems: 'center' }}>
-                <CardMedia
-                    component="img"
-                    height="100%"
-                    image={ImagemTeste}
-                    alt="green iguana"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {disciplina.nome_disciplina}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+        <Link to={`./discussao/${disciplina.id_disciplina}`} sx={{textDecoration: 'none'}}>            
+            <Card sx={{ maxWidth: 345, marginLeft: 5, marginBottom: 5, maxHeight: 400}}>
+                <CardActionArea sx={{ alignItems: 'center' }}>
+                    <CardMedia
+                        component="img"
+                        height="80%"
+                        image={ImagemTeste}
+                        alt="green iguana"
+                    />
+                    <CardContent sx={{textDecoration: 'none'}}>
+                        <Typography gutterBottom variant="h5" component="div" >
+                            {disciplina.nome_disciplina}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
         </Link>
     ));
     
     return (
-        <div className="containerHome" style={{ width: '100%', height: '100%' }}>
+        <div className="containerHome" style={{ width: '100%', height: '80%' }}>
             <div className="divBoxHome">
-            {/* <div className="divBoxHome" style={{ backgroundColor: 'red', height: '100%'}}> */}
                 <Box sx={{ gridAutoRows: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-                        justifyContent: 'space-around', justifyItems: 'center', width: '70%', marginTop:' 30px', marginBottom:' 30px'}}>
-                        {itensDisciplinas}
-                        {/* <Card sx={{ maxWidth: 345 }}>
-                            <CardActionArea sx={{ alignItems: 'center' }}>
-                                <CardMedia
-                                    component="img"
-                                    height="100%"
-                                    image={ImagemTeste}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        MATEMÁTICA
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                        <Card sx={{ maxWidth: 345 }}>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="100%"
-                                    image={ImagemTeste}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        GEOGRAFIA
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                        <Card sx={{ maxWidth: 345, }}>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="100%"
-                                    image={ImagemTeste}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        QUÍMICA
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card> */}
+                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', justifyContent: 'space-around',
+                        justifyItems: 'center', width: '70%', marginTop:' 30px', marginBottom:' 30px', textDecoration: 'none'}}>
+                            {itensDisciplinas}
                     </Box>
-                    {/* <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-                        justifyContent: 'space-around', justifyItems: 'center', width: '70%'}}>
-                        <Card sx={{ maxWidth: 345 }}>
-                            <CardActionArea sx={{ alignItems: 'center' }}>
-                                <CardMedia
-                                    component="img"
-                                    height="100%"
-                                    image={ImagemTeste}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        FÍSICA
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                        <Card sx={{ maxWidth: 345 }}>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="100%"
-                                    image={ImagemTeste}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        HISTÓRIA
-
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                        <Card sx={{ maxWidth: 345, }}>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="img"
-                                    height="100%"
-                                    image={ImagemTeste}
-                                    alt="green iguana"
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        PORTUGUÊS
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Card>
-                    </Box> */}
                 </Box>
             </div>
         </div>

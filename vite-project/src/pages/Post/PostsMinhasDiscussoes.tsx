@@ -39,7 +39,7 @@ const PostMinhasDiscussoes = (props) => {
     return (
       <div>{discussoesDisc.map(discussao =>
         (
-          <Link href={`/home/discussao/acessaDiscussao/${discussao.id_discussao}`}>
+          <Link href={`/home/discussao/acessaDiscussao/${discussao.id_discussao}`} sx={{textDecoration: 'none'}}>
           <Card sx={{ margin: 2 }}>
             <CardActionArea>
               <CardHeader 
