@@ -66,7 +66,7 @@ export function Home() {
     ));
     
     return (
-        <div className="containerHome" style={{ width: '100%', height: '80%' }}>
+        <div className="containerHome" style={{ width: '100%', height: '80%', overflow:'hidden'}}>
             <div className="divBoxHome">
                 <Box sx={{ gridAutoRows: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', justifyContent: 'space-around',
