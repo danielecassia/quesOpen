@@ -81,6 +81,15 @@ class usuarioService {
       return user;
   }
 
+  async deletarUsuario(id) {
+    const deletado = await usuario.destroy({
+        where: {
+          id_usuario: id,
+        },
+})
+    return deletado;
+  }
+
 }
 
 

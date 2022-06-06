@@ -72,6 +72,15 @@ class discussaoService {
     console.log(discussaoCreated);
     return discussaoCreated;
   }
+
+  async deletarDiscussao(id) {
+    const deletado = await discussao.destroy({
+        where: {
+          id_discussao: id,
+        },
+    })
+    return deletado;
+  }
 }
 
 

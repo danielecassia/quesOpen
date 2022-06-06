@@ -15,6 +15,9 @@ class comentarioService {
     const createdComentario = comentario.findAll(
       {
         where: {discussaoIdDiscussao: idDiscussao},
+        order: [
+          ['data_comentario','DESC'], 
+        ],
         include: [{
           model: discussao,
         },
