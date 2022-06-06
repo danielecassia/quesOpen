@@ -1,4 +1,5 @@
 import ImagemTeste from '../../assets/imagens/logo.svg';
+import Mat from '../../assets/imagens/materias.png';
 import * as React from 'react';
 import Box, { BoxProps } from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -52,7 +53,7 @@ export function Home() {
                     <CardMedia
                         component="img"
                         height="80%"
-                        image={ImagemTeste}
+                        image={Mat}
                         alt="green iguana"
                     />
                     <CardContent sx={{textDecoration: 'none'}}>
