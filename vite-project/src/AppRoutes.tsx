@@ -12,10 +12,10 @@ import { DiscussoesTeste } from './pages/Discussoes/Discussoes';
 import { AcessarDiscussao } from './pages/AcessarDiscussao/AcessarDiscussao';
 import { CriaDiscussao } from './pages/CriaDiscussao/CriaDiscussao';
 import { CriaComentario } from './pages/CriaComentario/CriaComentario';
-import { Perfil } from  './pages/Pefil/Perfil';
+import { Perfil } from './pages/Pefil/Perfil';
 import { Navbar } from './pages/components/Navbar/Navbar';
 import { NotFound } from './pages/NotFound/NotFound';
-import { MInhasDiscussoes } from "./pages/MinhasDiscussoes/MinhasDiscussoes";
+import { MinhasDiscussoes } from "./pages/MinhasDiscussoes/MinhasDiscussoes";
 
 export function AppRoutes() {
   axios.defaults.baseURL = 'http://localhost:3001';
@@ -31,13 +31,13 @@ export function AppRoutes() {
 
           <Route path="home" element={<Navbar />}>
             <Route index element={<Home />} />
-          <Route path="discussao/:id_disc" element={<DiscussoesTeste />} />
-          <Route path="discussao/acessaDiscussao/:id_disc" element={<AcessarDiscussao />} />
-          <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
-          <Route path="discussao/acessaDiscussao/:id_disc/CriaComentario" element={<CriaComentario />} />
-          <Route path="minhasDiscussoes" element={<MInhasDiscussoes/>}/>
-          {/* provisoria de perfil */}
-          <Route path="paginaPerfil" element={<Perfil/>} />
+            <Route path="discussao/:id_disc" element={<DiscussoesTeste />} />
+            <Route path="discussao/acessaDiscussao/:id_disc" element={<AcessarDiscussao />} />
+            <Route path="discussao/:id_disc/criaDiscussao" element={<CriaDiscussao />} />
+            <Route path="discussao/acessaDiscussao/:id_disc/CriaComentario" element={<CriaComentario />} />
+            <Route path="minhasDiscussoes" element={<MinhasDiscussoes />} />
+            {/* provisoria de perfil */}
+            <Route path="paginaPerfil" element={<Perfil />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

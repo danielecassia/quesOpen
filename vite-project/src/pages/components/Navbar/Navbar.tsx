@@ -23,7 +23,7 @@ export function Navbar() {
     {
       id: 1,
       nome: 'Matérias',
-      link:  ()=>navigate(`./`),
+      link: () => navigate(`./`),
     }
   ]
   // const settings = ['Minhas Discussões', 'Perfil', 'Sair'];
@@ -31,12 +31,12 @@ export function Navbar() {
     {
       id: 1,
       nome: 'Minhas Discussões',
-      link: ()=>navigate(`minhasDiscussoes`),
+      link: () => navigate(`minhasDiscussoes`),
     },
     {
       id: 2,
       nome: 'Perfil',
-      link: ()=>navigate(`paginaPerfil`),
+      link: () => navigate(`paginaPerfil`),
     },
     {
       id: 3,
@@ -70,7 +70,7 @@ export function Navbar() {
 
   return (
     <Box>
-      <AppBar position="static" sx={{bgcolor:"black"}}>
+      <AppBar position="static" sx={{ bgcolor: "black" }}>
         <Container maxWidth="100%">
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
