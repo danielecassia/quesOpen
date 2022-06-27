@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import { useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from '@mui/material';
+import { Alert } from '@mui/material';
 
 const Img = styled('img')({
     margin: 'auto',
@@ -50,27 +52,16 @@ export function Perfil() {
             setUsuarioAtual(response.data);
           })
     }
-    // const [mount, ]
     React.useEffect(() => {
-        // async function getInfos(){
-        //     try {
-        //         const resposta = await axios.get(`/usuarios/me/`)
-        //         .then((res) => setUsuarioAtual(res.data))
-        //         .catch((err) => console.log(err.response));
-        //         console.log(resposta);
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // }
-        // getInfos();
         getDataAsync();
     }, []);    
-    //    const idadeAtual()
-
     if(usuarioAtual.length == 0){
         return(
             <div>
-                <h4>Carregando...</h4>
+                <Link key={usuarioAtual.id_usuario} to='/'><Alert className='alert-discussao' variant="filled">
+                    Erro! Usuário não logado.
+                </Alert>
+                </Link>
             </div>
         )
     }
@@ -101,7 +92,7 @@ export function Perfil() {
                                     E-mail: {usuarioAtual.email}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    Data de Nascimento: {usuarioAtual.data_nasc.substring(0,10)}
+                                    Data de Nascimento: {usuarioAtual.data_nasc}
                                 </Typography>
                             </Grid>
                             <Grid item>

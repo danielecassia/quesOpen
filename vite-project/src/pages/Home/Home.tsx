@@ -47,8 +47,8 @@ export function Home() {
 
     const itensDisciplinas = disciplinas.map(disciplina =>
         (
-        <Link to={`./discussao/${disciplina.id_disciplina}`} sx={{textDecoration: 'none'}}>            
-            <Card id="card" sx={{ maxWidth: 345, marginLeft: 5, marginBottom: 5, maxHeight: 400}}>
+        <Link key={disciplina.id_disciplina} to={`./discussao/${disciplina.id_disciplina}`} sx={{textDecoration: 'none'}}>            
+            <Card sx={{ maxWidth: 345, marginLeft: 5, marginBottom: 5, maxHeight: 400}}>
                 <CardActionArea sx={{ alignItems: 'center' }}>
                     <CardMedia
                         component="img"

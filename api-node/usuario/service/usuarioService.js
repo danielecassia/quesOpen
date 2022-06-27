@@ -1,93 +1,33 @@
 const bcrypt = require('bcrypt');
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
-const usuario = require('../model/usuarioModel.js')
+const usuario = require('../model/usuarioModel.js');
+const usuarioRepository = require('../repository/usuarioRepository');
 
 class usuarioService {
 
   createUser = async (user) => {
-    const saltRounds = 10;
-    user.senha = await bcrypt.hash(user.senha, saltRounds);
-    // let now = new Date();
-    
-    // const createdUser = sequelize.query(
-    //   'INSERT INTO usuarios (nome_usuario, data_nasc,email, senha, createdAt, updatedAt ) VALUES (:nomeUser, :data_nascUser, :emailUser, :senhaUser, :createdAt, :updatedAt)',
-    //   {
-    //     replacements: {
-    //       nomeUser: user.name,
-    //       data_nascUser: user.data_nasc,
-    //       emailUser: user.email,
-    //       senhaUser: senha,
-    //       createdAt: now,
-    //       updatedAt: now,
-    //     },
-    //     type: QueryTypes.INSERT,
-    //   }
-    // );
-    const createdUser = usuario.create(user);
-    console.log(createdUser);
-    return createdUser;
+    return usuarioRepository.create(user);
   };
 
   getAllUsuarios = async () => {
-    // const createdUsuarios = sequelize.query(
-    //   'SELECT * FROM usuarios',
-    //   {
-    //     type: QueryTypes.SELECT,
-    //   }
-    // );
-    const createdUsuarios = usuario.findAll({
-      raw: true,
-      attributes: {
-        exclude: ['senha','createdAt','updatedAt'],
-      }
-    })
-    return createdUsuarios;
+    return usuarioRepository.findAll();
   };
 
-  getUsuariobyId = async(userId) => {
-    // const user = sequelize.query(
-    //   'SELECT * FROM usuarios WHERE id_usuario = :idUser',
-    //   {
-    //     replacements: {
-    //       idUser: userId,
-    //     },
-    //     type: QueryTypes.SELECT,
-    //   }
-    // )
-    const user = usuario.findByPk(userId);
-    return user;
-  };
-
-  getUsuariobyEmail = async(emailUsuario) => {
-    const user = usuario.findOne({where: {email: emailUsuario}});
-    console.log(user);
-    return user;
+  getUsuarioById = async(userId) => {
+    return usuarioRepository.findById(userId);
   }
 
-  async getCurrentUser(id) {
-    const user = await usuario.findByPk(id,
-      {
-        attributes: { 
-          exclude:
-        ['senha', 'createdAt', 'updatedAt'],
-        },
-      });
-      if(!user) {
-        alert('Usuário não encontrado');
-        user = {};
-        return;
-      }
-      return user;
+  userbyEmail = async(emailUsuario) => {
+    return usuarioRepository.findByEmail(emailUsuario);
   }
 
-  async deletarUsuario(id) {
-    const deletado = await usuario.destroy({
-        where: {
-          id_usuario: id,
-        },
-})
-    return deletado;
+  getCurrentUser = async(id) => {
+    return usuarioRepository.currentUser(id);
+  }
+
+  deletarUsuario = async(id) => {
+    return usuarioRepository.deleteUser(id);
   }
 
 }

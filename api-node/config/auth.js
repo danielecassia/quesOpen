@@ -12,8 +12,13 @@ module.exports = function(passport){
  
   passport.deserializeUser(async(id_usuario, done) => {
     try {
-      const user = await usuarioService.getUsuariobyId(id_usuario);
-      done(null, user);
+      // const userEmId = await usuarioService.getUsuariobyId(id_usuario);
+      // console.log('PRIMEIRO ISSO: \n\n');
+      // console.log(userEmId.dataValues);
+      const userEmId = await usuarioService.getUsuarioById(id_usuario);
+      // console.log('SEGUNDO ISSO: \n\n');
+      // console.log(userEmId2[0]);
+      done(null, userEmId[0]);
     } catch (error) {
       done(error, null);
     }
@@ -27,13 +32,13 @@ module.exports = function(passport){
     },
     async(emailUsuario, senha, done) => {
       try {
-        const user = await usuarioService.getUsuariobyEmail(emailUsuario); // procuro o usuário no bd através do email
+        const user = await usuarioService.userbyEmail(emailUsuario);
         if (!user) { return done(null, false) } // confirmo se retornou informações
 
-        const isValid = bcrypt.compareSync(senha, user.senha); //confiro se a senha informada está correta
+        const isValid = bcrypt.compareSync(senha, user[0].senha); //confiro se a senha informada está correta
         if (!isValid) return done(null, false)
 
-        return done(null, user)
+        return done(null, user[0])
       } catch (error) {
         done(error, false);
       }

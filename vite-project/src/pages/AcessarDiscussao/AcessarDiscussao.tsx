@@ -38,12 +38,12 @@ export function AcessarDiscussao(){
     useEffect(() => {
         getDataAsync();
     }, []); 
-
+    console.log(usuarioAtual);
   if(discussao.length==0){
     return(<div><h4>Erro ao carregar discussão ou não foi possível encontrar</h4></div>)
   }
   else{
-    if(usuarioAtual.length == 0){
+    if(usuarioAtual == null || usuarioAtual.length == 0){
       return(
         <div>
         <Link to='/'><Alert className='alert-discussao' variant="filled">
