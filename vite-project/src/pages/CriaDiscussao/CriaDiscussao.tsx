@@ -28,7 +28,7 @@ export function CriaDiscussao(){
     }, []);
     console.log(usuarioAtual);
 
-  if(usuarioAtual.length == 0){
+  if(usuarioAtual == null){
     return(
       <div>
       <Link to='/'><Alert className='alert-discussao' variant="filled">

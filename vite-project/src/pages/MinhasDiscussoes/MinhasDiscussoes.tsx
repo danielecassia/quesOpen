@@ -12,20 +12,21 @@ export function MinhasDiscussoes() {
   const navigate = useNavigate();
 
   const [usuarioAtual, setUsuarioAtual] = React.useState([]);
-  function getDataAsync() {
-    const url = `/usuarios/me`;
-    axios(url)
-      .then(response => {        
-        setUsuarioAtual(response.data);
-      })
-}
-  useEffect(() => {
-    getDataAsync();
-  }, []);
+    function getDataAsync() {
+        const url = `/usuarios/me`;
+        axios(url)
+          .then(response => {        
+            setUsuarioAtual(response.data);
+          })
+    };
+    React.useEffect(() => {
+      getDataAsync();
+    }, []);
+    console.log(usuarioAtual);
 
   if(usuarioAtual.length == 0){
     return(
-      <div><h4>Carregando</h4></div>
+      <div><h4>Carregando...</h4></div>
     )
   }
   else{

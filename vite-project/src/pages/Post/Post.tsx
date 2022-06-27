@@ -18,7 +18,7 @@ const Post = (props) => {
   let maiusc = (props.disc.usuario.nome_usuario[0]).toUpperCase();
   return (
     // {console.log(props.disc.id_discussao);}
-    <Link href={`acessaDiscussao/${props.disc.id_discussao}`} sx={{textDecoration: 'none'}}>
+    <Link key={props.disc.id_discussao} href={`acessaDiscussao/${props.disc.id_discussao}`} sx={{textDecoration: 'none'}}>
     {/* discussao_infos = {props.disc.id_discussao} */}
       <Card sx={{ margin: 2 }}>
         <CardActionArea>
