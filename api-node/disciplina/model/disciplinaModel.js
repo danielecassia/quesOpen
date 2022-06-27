@@ -12,9 +12,6 @@ const disciplina = sequelize.define('disciplina', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  imagem_disciplina: {
-    type: DataTypes.STRING,
-  }
 });
 
 module.exports = disciplina;
