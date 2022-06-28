@@ -1,6 +1,6 @@
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index');
-
+ 
 class discussaoRepository{
 
   findAll = async () => {

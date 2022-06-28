@@ -4,6 +4,10 @@ const discussaoRepository = require('../repository/discussaoRepository');
 
 class discussaoService {
 
+  constructor(repository = require('../repository/discussaoRepository')){
+    this.discussaoRepository = repository;
+  };
+ 
   getAllDiscussoes = async () => {
     // const createdDiscussao = discussao.findAll({
     //   include: [
@@ -18,7 +22,7 @@ class discussaoService {
     // ]
     // })
     // return createdDiscussao;
-    return discussaoRepository.findAll();
+    return this.discussaoRepository.findAll();
   };
 
   getDiscussoesByUsuario = async(userId) => {
@@ -33,7 +37,7 @@ class discussaoService {
     //   }]
     // })
     // return discussoesUsuario;
-    return discussaoRepository.findByUsuario(userId);
+    return this.discussaoRepository.findByUsuario(userId);
   };
 
   getDiscussoesByDisciplina = async(disciplinaId) => {
@@ -51,7 +55,7 @@ class discussaoService {
     //   }]
     // });
     // return discussoesDisciplina;
-    return discussaoRepository.findByDisciplina(disciplinaId);
+    return this.discussaoRepository.findByDisciplina(disciplinaId);
   }
 
   getDiscussaoById = async(discussaoId) => {
@@ -66,14 +70,14 @@ class discussaoService {
     //   }]
     // });
     // return discussaoPorId;
-    return discussaoRepository.findById(discussaoId);
+    return this.discussaoRepository.findById(discussaoId);
   }
 
   createDiscussao = async(dadosDiscussao) => {
     // const discussaoCreated = discussao.create(dadosDiscussao);
     // console.log(discussaoCreated);
     // return discussaoCreated;
-    return discussaoRepository.create(dadosDiscussao);
+    return this.discussaoRepository.create(dadosDiscussao);
   }
 
   async deletarDiscussao(id) {
@@ -83,7 +87,7 @@ class discussaoService {
     //     },
     // })
     // return deletado;
-    return discussaoRepository.delete(id);
+    return this.discussaoRepository.delete(id);
   }
 }
 
