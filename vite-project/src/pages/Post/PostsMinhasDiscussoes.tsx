@@ -36,6 +36,10 @@ const PostMinhasDiscussoes = (props) => {
     );
   }
   else{
+    console.log(discussoesDisc[0]);
+    discussoesDisc.map(discussao =>{
+      console.log(discussao.id_discussao);
+    })
     return (
       <div>{discussoesDisc.map(discussao =>
         (
@@ -45,7 +49,7 @@ const PostMinhasDiscussoes = (props) => {
               <CardHeader 
                 avatar={
                   <Avatar sx={{ bgcolor: "gray" }} aria-label="recipe">
-                    {discussao.usuario.nome_usuario[0]}
+                    {discussao.nome_usuario[0]}
                   </Avatar>
                 }
                 title={discussao.titulo}

@@ -1,8 +1,6 @@
 const bcrypt = require('bcrypt');
-const e = require('cors');
 const { QueryTypes, QueryError } = require('sequelize');
 const sequelize = require('../../database/index');
-const usuario = require('../model/usuarioModel.js')
 
 class usuarioRepository {
   create = async(user) => {

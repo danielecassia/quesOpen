@@ -6,6 +6,10 @@ const usuarioRepository = require('../repository/usuarioRepository');
 
 class usuarioService {
 
+  // constructor(repository = require('../repository/usuarioRepository')){
+  //   this.usuarioRepository = repository;
+  // }
+
   createUser = async (user) => {
     return usuarioRepository.create(user);
   };
