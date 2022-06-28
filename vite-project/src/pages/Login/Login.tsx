@@ -36,12 +36,14 @@ export function Login() {
             <form onSubmit={onClickLogin}>
               <div className='inputs'>
                 <input
+                  id= "email"
                   type='text'
                   placeholder='Email'
                   value={email}
                   onChange={(ev) => setEmail(ev.target.value)}
                 />
                 <input
+                  id = "password"
                   type="password"
                   placeholder='Senha'
                   value={senha}

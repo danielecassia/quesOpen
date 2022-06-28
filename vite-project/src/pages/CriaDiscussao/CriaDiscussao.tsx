@@ -68,13 +68,13 @@ export function CriaDiscussao(){
                 <Grid item xs sx={{ marginBottom: 2, marginTop: 2 }}>
                   <FormControl sx={{ width: 500 }}>
                     <InputLabel htmlFor="my-input">Título</InputLabel>
-                    <Input id="my-input" aria-describedby="my-helper-text" value={titulo} onChange={(ev) => setTitulo(ev.target.value)} />
+                    <Input id="titulo" aria-describedby="my-helper-text" value={titulo} onChange={(ev) => setTitulo(ev.target.value)} />
                   </FormControl>
                 </Grid>
                 <Grid item xs sx={{ alignItems: 'center', justifyContent: 'center', marginBottom: 2 }}>
                   <FormControl sx={{ width: 500 }}>
                     <InputLabel htmlFor="my-input">Discussões</InputLabel>
-                    <Input id="my-input" aria-describedby="my-helper-text" value={descricao} onChange={(ev) => setDescricao(ev.target.value)} />
+                    <Input id="discussao" aria-describedby="my-helper-text" value={descricao} onChange={(ev) => setDescricao(ev.target.value)} />
                   </FormControl>
                 </Grid>
                 <Button type='submit'>Enviar</Button>
