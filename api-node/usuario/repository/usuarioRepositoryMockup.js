@@ -32,6 +32,12 @@ class usuarioRepositoryMockup{
         let res = this.repository.filter((user) => user.id_usuario != id)
         return res[0];
     }
+
+    async create(user){
+        user.id_usuario = this.repository.length+1;
+        let res = this.repository.push(user);
+        return res;
+    }
 };
 
 module.exports = new usuarioRepositoryMockup();

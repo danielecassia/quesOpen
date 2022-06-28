@@ -5,7 +5,7 @@ const usuarioRepositoryMockup = require('./usuario/repository/usuarioRepositoryM
 test('getAllUsuarios', async (t) => {
     usuario.usuarioRepository = usuarioRepositoryMockup;
 
-    t.equal(typeof (await usuario.getAllUsuarios()), Array, "tipo ok")
+    t.equal(typeof (await usuario.getAllUsuarios()), 'object', "tipo ok")
     t.equal((await usuario.getAllUsuarios()).length, 2, "tamanho ok")
     t.end()  
 });
@@ -13,8 +13,8 @@ test('getAllUsuarios', async (t) => {
 test('getUsuarioById', async (t) => {
     usuario.usuarioRepository = usuarioRepositoryMockup;
 
-    t.equal((await usuario.getUsuarioById(1)).nome_usuario, "Arthur")
-    t.equal((await usuario.getUsuarioById(2)).nome_usuario, "Henrique")
+    t.equal((await usuario.getUsuarioById(1)).nome_usuario, "Arthur", "Usuario por id OK")
+    t.equal((await usuario.getUsuarioById(2)).nome_usuario, "Henrique", "Usuario por id OK")
     t.end()  
 });
 
@@ -29,8 +29,7 @@ test('createUser', async (t) => {
         senha_confirm: "coxinha123"
     };
 
-
-    t.equals((await usuario.createUser(newUser)), [3, 1], "retorno correto")
+    t.equals((await usuario.createUser(newUser)), 3, "retorno correto")
     t.equals((await usuario.getUsuarioById(3)).email, "art2@email.com", "usuario adicionado")
     usuario.deletarUsuario(3);
     t.end()  
