@@ -7,7 +7,7 @@ class usuarioRepository {
     const saltRounds = 10;
     user.senha = await bcrypt.hash(user.senha, saltRounds);
     const createdUser = await sequelize.query(
-      'INSERT INTO usuarios(nome_usuario,email, senha, data_nasc) VALUES(:nome, :email, :senha, :data_nasc)',
+      'INSERT INTO usuarios(nome_usuario, email, senha, data_nasc) VALUES(:nome, :email, :senha, :data_nasc)',
       {
         type: QueryTypes.INSERT,
         replacements: {

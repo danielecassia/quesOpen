@@ -2,36 +2,35 @@ const bcrypt = require('bcrypt');
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
 const usuario = require('../model/usuarioModel.js');
-const usuarioRepository = require('../repository/usuarioRepository');
 
 class usuarioService {
 
-  // constructor(repository = require('../repository/usuarioRepository')){
-  //   this.usuarioRepository = repository;
-  // }
-
+  constructor(repository = require('../repository/usuarioRepository')){
+    this.usuarioRepository = repository;
+  };
+  
   createUser = async (user) => {
-    return usuarioRepository.create(user);
+    return this.usuarioRepository.create(user);
   };
 
   getAllUsuarios = async () => {
-    return usuarioRepository.findAll();
+    return this.usuarioRepository.findAll();
   };
 
   getUsuarioById = async(userId) => {
-    return usuarioRepository.findById(userId);
+    return this.usuarioRepository.findById(userId);
   }
 
   userbyEmail = async(emailUsuario) => {
-    return usuarioRepository.findByEmail(emailUsuario);
+    return this.usuarioRepository.findByEmail(emailUsuario);
   }
 
   getCurrentUser = async(id) => {
-    return usuarioRepository.currentUser(id);
+    return this.usuarioRepository.currentUser(id);
   }
 
   deletarUsuario = async(id) => {
-    return usuarioRepository.deleteUser(id);
+    return this.usuarioRepository.deleteUser(id);
   }
 
 }
