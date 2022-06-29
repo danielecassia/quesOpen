@@ -26,8 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      working-directory: ./api-node
+        cache-dependency-path: api-node/package-lock.json
 
+    - run: npm ci
     - name: Testes unidade
       run: npm test
       working-directory: ./api-node
