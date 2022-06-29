@@ -1,11 +1,10 @@
 const bcrypt = require('bcrypt');
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
-const usuario = require('../model/usuarioModel.js');
 
 class usuarioService {
 
-  constructor(repository = require('../repository/usuarioRepository')){
+  constructor(repository){
     this.usuarioRepository = repository;
   };
   

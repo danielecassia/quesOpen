@@ -4,7 +4,9 @@
   "description": "Integrantes: \r - Alexandre Ferreira Arigoni (dev fullstack)\r - Arthur Yochio Rodrigues Codama (dev fullstack)\r - Daniele Cássia Silva Diniz (dev fullstack)\r - Henrique César Alves de Souza (dev fullstack)",
   "main": "hellonode.js",
   "scripts": {
-    "test": "node index.test",
+    "test": "node tests/index.test | tap-spec",
+    "integ": "node tests/integration.test | tap-spec",
+    "coverage": "nyc npm run test",
     "start": "nodemon api-node/index.js"
   },
   "repository": {
@@ -29,9 +31,12 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.19.0",
+    "supertest": "^6.2.3",
+    "tap-spec": "^5.0.0",
     "tape": "^5.5.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "nyc": "^15.1.0"
   }
 }

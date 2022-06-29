@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const MetodoLogout = require('../login/metodologout');
+
+router.get('/', (req,res) => {
+    const certo = "tudo certo";
+    res.status(200).json(certo);
+})
  
 /* GET login page. */
 router.get('/login', (req, res, next) => {

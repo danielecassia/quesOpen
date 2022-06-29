@@ -56,7 +56,7 @@ class discussaoRepositoryMockup{
   }
 
   async findAll(){
-      return this.repository;
+      return this.repository; 
   }
 
   async findById(id){
@@ -69,21 +69,21 @@ class discussaoRepositoryMockup{
     return res;
   }
 
-  // async findById(id){
-  //     let res = this.repository.filter((user) => user.id_usuario == id)
-  //     return res[0];
-  // }
+  async findByDisciplina(disciplinaId){
+    let res = this.repository.filter((discussao) => discussao.disciplinaIdDisciplina == disciplinaId);
+    return res;
+  }
 
-  // async deleteUser(id){
-  //     let res = this.repository.filter((user) => user.id_usuario != id)
-  //     return res[0];
-  // }
+  async create(discussao){
+    discussao.id_discussao = this.repository.length+1;
+    let res = this.repository.push(discussao);
+    return res;
+}
 
-  // async create(user){
-  //     user.id_usuario = this.repository.length+1;
-  //     let res = this.repository.push(user);
-  //     return res;
-  // }
+  async delete(id){
+    let res = this.repository.filter((discussao) => discussao.id_discussao == id)
+    return res[0];
+}
 };
 
 module.exports = new discussaoRepositoryMockup();

@@ -1,12 +1,12 @@
 const test = require('tape');
-const usuario = require('./usuario/service/usuarioService.js');
-const usuarioRepositoryMockup = require('./usuario/repository/usuarioRepositoryMockup.js');
-const discussao = require('./discussao/service/discussaoService');
-const discussaoRepositoryMockup = require('./discussao/repository/discussaoRepositoryMockup');
-const disciplina = require('./disciplina/service/disciplinaService');
-const disciplinaRepositoryMockup = require('./disciplina/repository/disciplinaRepositoryMockup');
-const comentario = require('./comentario/service/comentarioService');
-const comentarioModelMockup = require('./comentario/model/comentarioModelMockup');
+const usuario = require('../usuario/service/usuarioService.js');
+const usuarioRepositoryMockup = require('../usuario/repository/usuarioRepositoryMockup.js');
+const discussao = require('../discussao/service/discussaoService');
+const discussaoRepositoryMockup = require('../discussao/repository/discussaoRepositoryMockup');
+const disciplina = require('../disciplina/service/disciplinaService');
+const disciplinaRepositoryMockup = require('../disciplina/repository/disciplinaRepositoryMockup');
+const comentario = require('../comentario/service/comentarioService');
+const comentarioModelMockup = require('../comentario/model/comentarioModelMockup');
 
 
 /* 
@@ -110,7 +110,7 @@ test('getAllDiscussoes', async(t)=> {
     t.end() 
 })
 
-test('getDiscussaoById', async (t) => {
+test('Retornar discussão pelo ID', async (t) => {
     discussao.discussaoRepository = discussaoRepositoryMockup;
 
     t.equal((await discussao.getDiscussaoById(1)).titulo, "discussao mat1", "Discussao por id(1) OK")
@@ -118,10 +118,37 @@ test('getDiscussaoById', async (t) => {
     t.end()  
 });
 
-test('getDiscussaoByUsuario', async(t) => {
+test('Retornar discussões de um usuário', async(t) => {
     discussao.discussaoRepository = discussaoRepositoryMockup;
     t.equal((await discussao.getDiscussoesByUsuario(1)).length, 2, "Discussoes por usuario(1) OK")
     t.equal((await discussao.getDiscussoesByUsuario(2)).length, 3, "Discussoes por usuario(2) OK")
+    t.equal((await discussao.getDiscussoesByUsuario(8)).length, 0, "Discussoes por usuario(null) OK")
+    t.end()  
+});
+
+test('Retornar discussões de uma disciplina', async(t) => {
+    discussao.discussaoRepository = discussaoRepositoryMockup;
+    t.equal((await discussao.getDiscussoesByDisciplina(1)).length, 2, "Discussoes por disciplina(1) OK")
+    t.equal((await discussao.getDiscussoesByDisciplina(3)).length, 1, "Discussoes por disciplina(3) OK")
+    t.equal((await discussao.getDiscussoesByDisciplina(4)).length, 0, "Discussoes por disciplina(null) OK")
+    t.end()  
+});
+
+test('Criar discussão', async (t) => {
+    discussao.discussaoRepository = discussaoRepositoryMockup;
+    newDiscussao = {
+        titulo: "discussao dos testes",
+        descricao: "descricao nos testes realizados",
+        data_discussao: "2022-06-29",
+        usuarioIdUsuario: 1,
+        disciplinaIdDisciplina: 1,
+        nome_usuario: "Arthur",
+        nome_disciplina: "Matematica"
+    };
+
+    t.equals((await discussao.createDiscussao(newDiscussao)), 6, "retorno correto")
+    t.equals((await discussao.getDiscussaoById(6)).titulo, "discussao dos testes", "discussao criada")
+    discussao.deletarDiscussao(6);
     t.end()  
 });
 
@@ -196,5 +223,5 @@ test('createComentario', async (t) => {
 
 
     comentario.comentarioModel = oldModel
-    t.end()  
+    t.end()
 });
