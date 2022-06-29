@@ -23,7 +23,7 @@ Cypress.Commands.add('login', (email, password) => {
   })
   
   Cypress.Commands.add('criar', (titulo, discussao) => { 
-    cy.visit('localhost:3000/home/discussao/5/criaDiscussao')
+    cy.visit('localhost:3000/home/discussao/2/criaDiscussao')
     cy.get('[id="titulo"]').type(titulo)
     cy.wait(2000)
     cy.get('[id="discussao"]').type(discussao)

@@ -11,7 +11,7 @@ describe('The MadLibs Main Form', () => {
     cy.wait(3000)
     cy.criar('Teste Cypress', 'Isso é um teste legal de automatização de testes')
     cy.wait(1000)
-    cy.visit('localhost:3000/home/discussao/2')
+    // cy.visit('localhost:3000/home/discussao/2')
   });
 
 })
