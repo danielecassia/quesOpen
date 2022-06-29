@@ -1,5 +1,5 @@
-const test = require('tape')
-const supertest = require('supertest')
+const test = require('tape');
+const supertest = require('supertest');
 
 test('GET /usuarios/usuario/id', (t) => {
   supertest('http://localhost:3001')
