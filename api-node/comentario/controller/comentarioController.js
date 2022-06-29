@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const comentarioService = require('../service/comentarioService');
+const comentarioRepository = require('../repository/comentarioRepository');
+comentarioService.comentarioRepository = comentarioRepository;
 
 router.get('/',
   async (req, res) => {

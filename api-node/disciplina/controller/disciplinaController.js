@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const disciplinaService = require('../service/disciplinaService');
+const disciplinaRepository = require('../repository/disciplinaRepository');
+disciplinaService.disciplinaRepository = disciplinaRepository;
 
 router.get('/',
   async (req, res) => {

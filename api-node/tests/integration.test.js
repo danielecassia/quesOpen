@@ -22,7 +22,7 @@ test('GET /discussoes/discussoes-disciplina', (t) => {
   .end((err,res) => {
     var resultado = res.body;
     t.error(err, "Sem erros");
-    t.assert(resultado.length === 2, "Discussoes da disciplina(3) correto");
+    t.assert(resultado.length === 3, "Discussoes da disciplina(3) correto");
     t.end();
   })
 });
