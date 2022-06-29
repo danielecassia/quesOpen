@@ -28,7 +28,7 @@ jobs:
         cache: 'npm'
         cache-dependency-path: api-node/package-lock.json
 
-    - run: npm ci
+    # - run: npm ci
     - name: Testes unidade
       run: npm test
       working-directory: ./api-node
