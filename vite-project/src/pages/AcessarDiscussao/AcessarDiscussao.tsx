@@ -132,8 +132,9 @@ export function AcessarDiscussao(){
                 <Grid sx={{width: '100%'}}>
                   <Comentario id_discussao={id_disc}/>
                 </Grid>
-                <Grid sx={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}} id = "comentario">
+                <Grid sx={{width: '100%', display: 'flex', flexDirection: 'row-reverse'}} >
                   <AddCommentIcon sx={{    cursor: 'pointer'}}
+                    id = "comentario"
                     onClick={() => navigate(`CriaComentario`)}
                   />
                 </Grid>
