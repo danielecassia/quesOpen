@@ -4,7 +4,7 @@ const sequelize = require('../../database/index.js');
 
 class usuarioService {
 
-  constructor(repository = require('../repository/usuarioRepository')){
+  constructor(repository){
     this.usuarioRepository = repository;
   };
   

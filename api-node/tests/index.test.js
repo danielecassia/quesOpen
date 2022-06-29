@@ -37,8 +37,6 @@ test('Criar usuário', async (t) => {
     t.end()  
 });
 
-// test('')
-
 test('Retornar todas as discussões', async(t)=> {
     discussao.discussaoRepository = discussaoRepositoryMockup;
 
@@ -59,21 +57,32 @@ test('Retornar discussões de um usuário', async(t) => {
     discussao.discussaoRepository = discussaoRepositoryMockup;
     t.equal((await discussao.getDiscussoesByUsuario(1)).length, 2, "Discussoes por usuario(1) OK")
     t.equal((await discussao.getDiscussoesByUsuario(2)).length, 3, "Discussoes por usuario(2) OK")
+    t.equal((await discussao.getDiscussoesByUsuario(8)).length, 0, "Discussoes por usuario(null) OK")
     t.end()  
 });
 
-// createUser = async (user) => {
-//     return usuarioRepository.create(user);
-// };
+test('Retornar discussões de uma disciplina', async(t) => {
+    discussao.discussaoRepository = discussaoRepositoryMockup;
+    t.equal((await discussao.getDiscussoesByDisciplina(1)).length, 2, "Discussoes por disciplina(1) OK")
+    t.equal((await discussao.getDiscussoesByDisciplina(3)).length, 1, "Discussoes por disciplina(3) OK")
+    t.equal((await discussao.getDiscussoesByDisciplina(4)).length, 0, "Discussoes por disciplina(null) OK")
+    t.end()  
+});
 
-// userbyEmail = async(emailUsuario) => {
-//     return usuarioRepository.findByEmail(emailUsuario);
-// }
+test('Criar discussão', async (t) => {
+    discussao.discussaoRepository = discussaoRepositoryMockup;
+    newDiscussao = {
+        titulo: "discussao dos testes",
+        descricao: "descricao nos testes realizados",
+        data_discussao: "2022-06-29",
+        usuarioIdUsuario: 1,
+        disciplinaIdDisciplina: 1,
+        nome_usuario: "Arthur",
+        nome_disciplina: "Matematica"
+    };
 
-// getCurrentUser = async(id) => {
-//     return usuarioRepository.currentUser(id);
-// }
-
-// deletarUsuario = async(id) => {
-//     return usuarioRepository.deleteUser(id);
-// }
+    t.equals((await discussao.createDiscussao(newDiscussao)), 6, "retorno correto")
+    t.equals((await discussao.getDiscussaoById(6)).titulo, "discussao dos testes", "discussao criada")
+    discussao.deletarDiscussao(6);
+    t.end()  
+});

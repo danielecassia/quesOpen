@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const usuarioService = require('../service/usuarioService');
+const usuarioRepository = require('../repository/usuarioRepository');
 const passport = require('../../config/auth');
 const metodologout = require('../../login/metodologout');
+usuarioService.usuarioRepository = usuarioRepository;
 
 router.post('/',
   async (req, res) => {

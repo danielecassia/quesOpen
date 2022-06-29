@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node tests/index.test | tap-spec",
     "integ": "node tests/integration.test | tap-spec",
+    "coverage": "nyc npm run test",
     "start": "nodemon api-node/index.js"
   },
   "repository": {
@@ -35,6 +36,7 @@
     "tape": "^5.5.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "nyc": "^15.1.0"
   }
 }

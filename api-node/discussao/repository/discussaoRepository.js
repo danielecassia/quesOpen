@@ -14,18 +14,6 @@ class discussaoRepository{
         type: QueryTypes.SELECT
       }
     );
-    // const createdDiscussao = discussao.findAll({
-    //   include: [
-    //     {
-    //       model: disciplina, 
-    //       required: true,
-    //     },
-    //     {
-    //       model: usuarios,
-    //       required: true,
-    //     }
-    // ]
-    // })
     return allDiscussoes;
   };
 

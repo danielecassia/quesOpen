@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const discussaoService = require('../service/discussaoService');
+const discussaoRepository = require('../repository/discussaoRepository');
+discussaoService.discussaoRepository = discussaoRepository;
 
 router.get('/',
   async (req, res) => {

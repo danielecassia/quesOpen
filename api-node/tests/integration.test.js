@@ -22,8 +22,21 @@ test('GET /discussoes/discussoes-disciplina', (t) => {
   .end((err,res) => {
     var resultado = res.body;
     t.error(err, "Sem erros");
-    t.assert(resultado.length === 3, "Discussoes da disciplina(3) correto");
+    t.assert(resultado.length === 2, "Discussoes da disciplina(3) correto");
     t.end();
   })
 });
+
+test('GET /comentarios/discussao/5', (t) => {
+  supertest('http://localhost:3001')
+  .get('/comentarios/discussao/5')
+  .expect('Content-Type', /json/)
+  .expect(200)
+  .end((err,res) => {
+    var resultado = res.body;
+    t.error(err, "Sem erros");
+    t.assert(resultado.length === 5, "Comentarios da discussão (5) correto");
+    t.end();
+  })
+})
 
