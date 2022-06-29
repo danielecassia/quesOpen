@@ -27,6 +27,8 @@ export function AcessarDiscussao(){
         .catch((err) => console.log(err.response))
     }, []);
 
+    console.log(discussao);
+
     const [usuarioAtual, setUsuarioAtual] = useState([]);
     function getDataAsync() {
         const url = `/usuarios/me`;
@@ -55,9 +57,9 @@ export function AcessarDiscussao(){
       );
     }
     else{
-      if(usuarioAtual.id_usuario == discussao.usuarioIdUsuario){
+      if(usuarioAtual.id_usuario == discussao[0].usuarioIdUsuario){
         function handleDelete() {
-          axios.delete(`/discussoes/${discussao.id_discussao}`);
+          axios.delete(`/discussoes/${discussao[0].id_discussao}`);
           navigate('/home');
         }
         return (
@@ -79,7 +81,7 @@ export function AcessarDiscussao(){
                     <InputLabel htmlFor="my-input"/>
                     <Input id="my-input" 
                       aria-describedby="my-helper-text"
-                      value={discussao.titulo}
+                      value={discussao[0].titulo}
                       />
                   </FormControl>
                 </Grid>
@@ -87,7 +89,7 @@ export function AcessarDiscussao(){
                   <FormControl sx={{width: '100%'}}>
                     <InputLabel htmlFor="my-input"/>
                     <Input id="my-input" aria-describedby="my-helper-text"
-                      value={discussao.descricao}
+                      value={discussao[0].descricao}
                       />
                   </FormControl>
                 </Grid>
@@ -115,7 +117,7 @@ export function AcessarDiscussao(){
                     <InputLabel htmlFor="my-input"/>
                     <Input id="my-input" 
                       aria-describedby="my-helper-text"
-                      value={discussao.titulo}
+                      value={discussao[0].titulo}
                       />
                   </FormControl>
                 </Grid>
@@ -123,7 +125,7 @@ export function AcessarDiscussao(){
                   <FormControl sx={{width: '100%'}}>
                     <InputLabel htmlFor="my-input"/>
                     <Input id="my-input" aria-describedby="my-helper-text"
-                      value={discussao.descricao}
+                      value={discussao[0].descricao}
                       />
                   </FormControl>
                 </Grid>

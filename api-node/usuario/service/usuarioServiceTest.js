@@ -2,13 +2,14 @@ const bcrypt = require('bcrypt');
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
 const usuario = require('../model/usuarioModel.js');
+// const usuarioRepository = require('../repository/usuarioRepository');
 
-class usuarioService {
+class usuarioServiceTest {
 
-  constructor(repository = require('../repository/usuarioRepository')){
+  constructor(repository = require('../repository/usuarioRepositoryMockup')){
     this.usuarioRepository = repository;
-  };
-  
+  }
+
   createUser = async (user) => {
     return this.usuarioRepository.create(user);
   };
@@ -36,4 +37,4 @@ class usuarioService {
 }
 
 
-module.exports = new usuarioService();
+module.exports = new usuarioServiceTest();

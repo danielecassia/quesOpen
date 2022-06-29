@@ -1,6 +1,5 @@
 class usuarioRepositoryMockup{
     constructor(){
-        this.counter = 2;
         this.repository = [
             {
                 id_usuario: 1,
@@ -28,9 +27,31 @@ class usuarioRepositoryMockup{
         return res[0];
     }
 
-    async deleteUser(id){
-        let res = this.repository.filter((user) => user.id_usuario != id)
+    async findByEmail(email){
+        let res = this.repository.filter((user) => user.email == email)
         return res[0];
+    }
+
+    currentUser = this.findById;
+
+    async deleteUser(id){
+        // let deletedUser = this.repository.filter((user) => user.id_usuario == id);
+
+        this.repository = this.repository.filter((user) => user.id_usuario != id);
+
+        // TODO: checar tipo retorno
+        // return id;
+        return 1;
+    }
+
+    async create(user){
+        let id = this.repository.length + 1;
+        user.id_usuario = id;
+
+        this.repository.push(user);
+
+        // ID do usuário criado e número de usuários criados
+        return [id, 1];
     }
 };
 

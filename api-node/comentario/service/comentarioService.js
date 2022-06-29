@@ -1,18 +1,21 @@
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
-const comentario = require('../model/comentarioModel');
 const discussao = require('../../discussao/model/discussaoModel');
 const usuario = require('../../usuario/model/usuarioModel');
 
 class comentarioService {
 
+  constructor(comentario = require('../model/comentarioModel')){
+    this.comentarioModel = comentario;
+  };
+
   getComentarios = async () => {
-    const createdComentario = comentario.findAll();
+    const createdComentario = this.comentarioModel.findAll();
     return createdComentario;
   };
 
   getComentariosByDiscussao = async (idDiscussao) => {
-    const createdComentario = comentario.findAll(
+    const createdComentario = this.comentarioModel.findAll(
       {
         where: {discussaoIdDiscussao: idDiscussao},
         order: [
@@ -25,12 +28,12 @@ class comentarioService {
           model: usuario,
         }] 
       }
-      );
+    );
     return createdComentario;
   };
 
   createComentario = async(dadosComentario) => {
-    const comentarioCreated = comentario.create(dadosComentario);
+    const comentarioCreated = this.comentarioModel.create(dadosComentario);
     console.log(comentarioCreated);
     return comentarioCreated;
   }

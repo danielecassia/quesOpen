@@ -15,7 +15,7 @@ import {
 
 
 const Post = (props) => { 
-  let maiusc = (props.disc.usuario.nome_usuario[0]).toUpperCase();
+  let maiusc = (props.disc.nome_usuario[0]).toUpperCase();
   return (
     // {console.log(props.disc.id_discussao);}
     <Link key={props.disc.id_discussao} href={`acessaDiscussao/${props.disc.id_discussao}`} sx={{textDecoration: 'none'}}>
