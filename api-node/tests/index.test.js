@@ -1,10 +1,10 @@
 const test = require('tape');
-const usuario = require('./usuario/service/usuarioService.js');
-const usuarioRepositoryMockup = require('./usuario/repository/usuarioRepositoryMockup.js');
-const discussao = require('./discussao/service/discussaoService');
-const discussaoRepositoryMockup = require('./discussao/repository/discussaoRepositoryMockup');
+const usuario = require('../usuario/service/usuarioService.js');
+const usuarioRepositoryMockup = require('../usuario/repository/usuarioRepositoryMockup.js');
+const discussao = require('../discussao/service/discussaoService');
+const discussaoRepositoryMockup = require('../discussao/repository/discussaoRepositoryMockup');
 
-test('getAllUsuarios', async (t) => {
+test('Retornar todos usuários', async (t) => {
     usuario.usuarioRepository = usuarioRepositoryMockup;
 
     t.equal(typeof (await usuario.getAllUsuarios()), 'object', "tipo do usuario ok")
@@ -12,7 +12,7 @@ test('getAllUsuarios', async (t) => {
     t.end()  
 });
 
-test('getUsuarioById', async (t) => {
+test('Retornar usuário pelo ID', async (t) => {
     usuario.usuarioRepository = usuarioRepositoryMockup;
 
     t.equal((await usuario.getUsuarioById(1)).nome_usuario, "Arthur", "Usuario por id OK")
@@ -20,7 +20,7 @@ test('getUsuarioById', async (t) => {
     t.end()  
 });
 
-test('createUser', async (t) => {
+test('Criar usuário', async (t) => {
     usuario.usuarioRepository = usuarioRepositoryMockup;
     newUser = {
         nome: "Arthur2",
@@ -37,7 +37,9 @@ test('createUser', async (t) => {
     t.end()  
 });
 
-test('getAllDiscussoes', async(t)=> {
+// test('')
+
+test('Retornar todas as discussões', async(t)=> {
     discussao.discussaoRepository = discussaoRepositoryMockup;
 
     t.equal(typeof (await discussao.getAllDiscussoes()), 'object', "tipo da discussao ok")
@@ -45,7 +47,7 @@ test('getAllDiscussoes', async(t)=> {
     t.end() 
 })
 
-test('getDiscussaoById', async (t) => {
+test('Retornar discussão pelo ID', async (t) => {
     discussao.discussaoRepository = discussaoRepositoryMockup;
 
     t.equal((await discussao.getDiscussaoById(1)).titulo, "discussao mat1", "Discussao por id(1) OK")
@@ -53,7 +55,7 @@ test('getDiscussaoById', async (t) => {
     t.end()  
 });
 
-test('getDiscussaoByUsuario', async(t) => {
+test('Retornar discussões de um usuário', async(t) => {
     discussao.discussaoRepository = discussaoRepositoryMockup;
     t.equal((await discussao.getDiscussoesByUsuario(1)).length, 2, "Discussoes por usuario(1) OK")
     t.equal((await discussao.getDiscussoesByUsuario(2)).length, 3, "Discussoes por usuario(2) OK")

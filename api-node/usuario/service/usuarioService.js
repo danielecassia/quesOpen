@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const { QueryTypes } = require('sequelize');
 const sequelize = require('../../database/index.js');
-const usuario = require('../model/usuarioModel.js');
 
 class usuarioService {
 
